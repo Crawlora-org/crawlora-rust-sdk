@@ -349,8 +349,9 @@ def render_models(definitions: dict[str, dict], names: dict[str, str], flattened
                 output.append(f"    pub {field}: Option<{field_type}>,")
             if additional is not False:
                 value_type = schema_type(additional, names) if isinstance(additional, dict) else "Value"
+                extra_field = unique_name("additional", used_fields)
                 output.append("    #[serde(flatten)]")
-                output.append(f"    pub additional: BTreeMap<String, {value_type}>,")
+                output.append(f"    pub {extra_field}: BTreeMap<String, {value_type}>,")
             output.extend(["}", ""])
         else:
             alias = schema_type(schema, names)

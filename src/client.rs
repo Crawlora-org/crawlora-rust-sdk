@@ -3,7 +3,7 @@ use crate::operation::{
 };
 use crate::operations_generated;
 use crate::{Error, Services};
-use percent_encoding::{utf8_percent_encode, PATH_SEGMENT_ENCODE_SET};
+use percent_encoding::{utf8_percent_encode, NON_ALPHANUMERIC};
 use reqwest::header::{
     HeaderMap, HeaderValue, ACCEPT, AUTHORIZATION, CONTENT_TYPE, RETRY_AFTER, USER_AGENT,
 };
@@ -304,8 +304,9 @@ impl ClientInner {
         for parameter in operation.path_params {
             let value = required_value(operation, params, parameter.name)?;
             validate_enum(operation, parameter, value)?;
-            let encoded = utf8_percent_encode(&value_to_string(value), PATH_SEGMENT_ENCODE_SET);
-            path = path.replace(&format!("{{{}}}", parameter.name), &encoded.to_string());
+            let raw_value = value_to_string(value);
+            let encoded = utf8_percent_encode(&raw_value, NON_ALPHANUMERIC).to_string();
+            path = path.replace(&format!("{{{}}}", parameter.name), &encoded);
         }
         let url_text = format!("{}{}", self.base_url.as_str().trim_end_matches('/'), path);
         let mut url =
