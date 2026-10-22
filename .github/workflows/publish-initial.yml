@@ -24,6 +24,6 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Check crate version
         run: test "$(sed -n 's/^version = \"\(.*\)\"$/\1/p' Cargo.toml | head -n 1)" = "${{ inputs.version }}"
-      - run: cargo check
-      - run: cargo publish --dry-run
-      - run: cargo publish
+      - run: cargo check --locked
+      - run: cargo publish --locked --dry-run
+      - run: cargo publish --locked
