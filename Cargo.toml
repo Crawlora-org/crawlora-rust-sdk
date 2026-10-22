@@ -1,0 +1,29 @@
+[package]
+name = "crawlora"
+version = "1.49.0-sdk.1"
+edition = "2021"
+rust-version = "1.88"
+description = "Official async Rust client for the Crawlora public web data API"
+license = "MIT"
+homepage = "https://crawlora.net"
+repository = "https://github.com/Crawlora-org/crawlora-rust-sdk"
+documentation = "https://docs.rs/crawlora"
+readme = "README.md"
+keywords = ["crawlora", "web-scraping", "api-client", "scraping"]
+categories = ["api-bindings", "web-programming"]
+include = ["Cargo.toml", "README.md", "CHANGELOG.md", "LICENSE", "src/**", "openapi/public.json", "docs/**", "examples/**"]
+
+[dependencies]
+percent-encoding = "2.3"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "multipart"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+url = "2"
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]
+
+[lib]
+path = "src/lib.rs"
