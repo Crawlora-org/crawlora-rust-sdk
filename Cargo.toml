@@ -1,13 +1,13 @@
 [package]
 name = "crawlora"
-version = "1.49.0-sdk.2"
+version = "1.49.0-sdk.3"
 edition = "2021"
 rust-version = "1.88"
 description = "Official async Rust client for the Crawlora public web data API"
 license = "MIT"
 homepage = "https://crawlora.net"
 repository = "https://github.com/Crawlora-org/crawlora-rust-sdk"
-documentation = "https://docs.rs/crawlora"
+documentation = "https://crawlora.net/docs?utm_source=crates.io&utm_medium=registry&utm_campaign=crawlora-rust-sdk&utm_content=api-docs"
 readme = "README.md"
 keywords = ["crawlora", "web-scraping", "api-client", "scraping"]
 categories = ["api-bindings", "web-programming"]

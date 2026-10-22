@@ -1,7 +1,6 @@
 # Crawlora Rust SDK
 
 [![Crates.io](https://img.shields.io/crates/v/crawlora.svg)](https://crates.io/crates/crawlora)
-[![Docs.rs](https://docs.rs/crawlora/badge.svg)](https://docs.rs/crawlora)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Official async Rust client for the public Crawlora API. It provides generated
@@ -31,7 +30,7 @@ Or pin a release in `Cargo.toml`:
 
 ```toml
 [dependencies]
-crawlora = "1.49.0-sdk.2"
+crawlora = "1.49.0-sdk.3"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
