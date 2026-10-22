@@ -12,7 +12,7 @@ pub use client::{
 pub use error::Error;
 pub use models::*;
 pub use operation::{ApiResponse, RequestOptions, ResponseBody, ResponseMode};
-pub use services_generated::Services;
+pub use services_generated::*;
 
 /// Version of this Rust SDK package.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
