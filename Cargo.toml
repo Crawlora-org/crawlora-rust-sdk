@@ -1,6 +1,6 @@
 [package]
 name = "crawlora"
-version = "1.49.0-sdk.1"
+version = "1.49.0-sdk.2"
 edition = "2021"
 rust-version = "1.88"
 description = "Official async Rust client for the Crawlora public web data API"
