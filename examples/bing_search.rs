@@ -1,4 +1,4 @@
-use crawlora::{BingSearchParams, CrawloraClient};
+use crawlora::{BingSearchParams, CrawloraClient, ModelBingSearchResponseDoc};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             ..Default::default()
         })
         .await?;
-    let body: serde_json::Value = response.into_json()?;
-    println!("{}", serde_json::to_string_pretty(&body)?);
+    let result: ModelBingSearchResponseDoc = response.into_json()?;
+    println!("{result:#?}");
     Ok(())
 }
