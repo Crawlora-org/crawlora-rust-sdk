@@ -82,7 +82,7 @@ dependencies = [
 
 [[package]]
 name = "crawlora"
-version = "1.49.0-sdk.2"
+version = "1.49.0-sdk.3"
 dependencies = [
  "percent-encoding",
  "reqwest",

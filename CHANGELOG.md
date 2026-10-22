@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.49.0-sdk.3
+
+- Point package documentation metadata to Crawlora's API documentation.
+- Remove the Docs.rs build badge from the README.
+
 ## 1.49.0-sdk.2
 
 - Refresh the crate README with installation, account, API documentation, and usage links.
