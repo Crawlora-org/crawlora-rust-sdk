@@ -30,7 +30,7 @@ Or pin a release in `Cargo.toml`:
 
 ```toml
 [dependencies]
-crawlora = "1.49.0-sdk.3"
+crawlora = "1.49.0-sdk.4"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 ```
 
