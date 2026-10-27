@@ -2018,6 +2018,112 @@ pub struct ModelAliexpressAttributeValue {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelAliexpressCategory>>,
+    #[serde(rename = "category_tab", default, skip_serializing_if = "Option::is_none")]
+    pub category_tab: Option<String>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategory {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<String>,
+    #[serde(rename = "children", default, skip_serializing_if = "Option::is_none")]
+    pub children: Option<Vec<ModelAliexpressCategory>>,
+    #[serde(rename = "icon_url", default, skip_serializing_if = "Option::is_none")]
+    pub icon_url: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "level", default, skip_serializing_if = "Option::is_none")]
+    pub level: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "parent_id", default, skip_serializing_if = "Option::is_none")]
+    pub parent_id: Option<String>,
+    #[serde(rename = "search_keyword", default, skip_serializing_if = "Option::is_none")]
+    pub search_keyword: Option<String>,
+    #[serde(rename = "search_url", default, skip_serializing_if = "Option::is_none")]
+    pub search_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoryIdsResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelAliexpressWebCategory>>,
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "paths", default, skip_serializing_if = "Option::is_none")]
+    pub paths: Option<Vec<ModelAliexpressCategoryPath>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "source", default, skip_serializing_if = "Option::is_none")]
+    pub source: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(rename = "total_results", default, skip_serializing_if = "Option::is_none")]
+    pub total_results: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoryPath {
+    #[serde(rename = "depth", default, skip_serializing_if = "Option::is_none")]
+    pub depth: Option<i64>,
+    #[serde(rename = "leaf_id", default, skip_serializing_if = "Option::is_none")]
+    pub leaf_id: Option<i64>,
+    #[serde(rename = "path", default, skip_serializing_if = "Option::is_none")]
+    pub path: Option<Vec<i64>>,
+    #[serde(rename = "products", default, skip_serializing_if = "Option::is_none")]
+    pub products: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoryProductsResponse {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "products", default, skip_serializing_if = "Option::is_none")]
+    pub products: Option<Vec<ModelAliexpressProductSummary>>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(rename = "total_pages", default, skip_serializing_if = "Option::is_none")]
+    pub total_pages: Option<i64>,
+    #[serde(rename = "total_results", default, skip_serializing_if = "Option::is_none")]
+    pub total_results: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelAliexpressFiltersResponse {
     #[serde(rename = "attribute_groups", default, skip_serializing_if = "Option::is_none")]
     pub attribute_groups: Option<Vec<ModelAliexpressAttributeGroup>>,
@@ -2170,11 +2276,131 @@ pub struct ModelAliexpressSortOption {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressSuggestResponse {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(rename = "suggestions", default, skip_serializing_if = "Option::is_none")]
+    pub suggestions: Option<Vec<ModelAliexpressSuggestion>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressSuggestion {
+    #[serde(rename = "keyword", default, skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelAliexpressSwitchOption {
     #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
     pub label: Option<String>,
     #[serde(rename = "param", default, skip_serializing_if = "Option::is_none")]
     pub param: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressTrendingSearch {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "display_keyword", default, skip_serializing_if = "Option::is_none")]
+    pub display_keyword: Option<String>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "keyword", default, skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(rename = "kind", default, skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+    #[serde(rename = "search_url", default, skip_serializing_if = "Option::is_none")]
+    pub search_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressTrendingSearchesResponse {
+    #[serde(rename = "available", default, skip_serializing_if = "Option::is_none")]
+    pub available: Option<i64>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "items", default, skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<ModelAliexpressTrendingSearch>>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressWebCategory {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "leaf", default, skip_serializing_if = "Option::is_none")]
+    pub leaf: Option<bool>,
+    #[serde(rename = "level", default, skip_serializing_if = "Option::is_none")]
+    pub level: Option<i64>,
+    #[serde(rename = "parent_id", default, skip_serializing_if = "Option::is_none")]
+    pub parent_id: Option<i64>,
+    #[serde(rename = "path", default, skip_serializing_if = "Option::is_none")]
+    pub path: Option<Vec<i64>>,
+    #[serde(rename = "product_hits", default, skip_serializing_if = "Option::is_none")]
+    pub product_hits: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelAliexpressCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoryIdsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelAliexpressCategoryIdsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressCategoryProductsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelAliexpressCategoryProductsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -2209,6 +2435,30 @@ pub struct ModelAliexpressSearchResponseDoc {
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelAliexpressSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressSuggestResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelAliexpressSuggestResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelAliexpressTrendingSearchesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelAliexpressTrendingSearchesResponse>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]
@@ -27042,6 +27292,36 @@ pub struct ModelDatasetsAirbnbMarketSearchResponse {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDatasetsApplePlaceFacetResponse {
+    #[serde(rename = "dataset", default, skip_serializing_if = "Option::is_none")]
+    pub dataset: Option<String>,
+    #[serde(rename = "facet", default, skip_serializing_if = "Option::is_none")]
+    pub facet: Option<String>,
+    #[serde(rename = "items", default, skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<ModelEsApplePlaceDatasetFacetItem>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDatasetsApplePlaceSearchResponse {
+    #[serde(rename = "dataset", default, skip_serializing_if = "Option::is_none")]
+    pub dataset: Option<String>,
+    #[serde(rename = "items", default, skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<ModelEsApplePlaceDatasetItem>>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelDatasetsApplePodcastsShowsFacetResponse {
     #[serde(rename = "dataset", default, skip_serializing_if = "Option::is_none")]
     pub dataset: Option<String>,
@@ -28569,6 +28849,42 @@ pub struct ModelDatasetsAirbnbMarketsSearchResponseDoc {
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelDatasetsAirbnbMarketSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDatasetsApplePlaceResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelEsApplePlaceRecord>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDatasetsApplePlacesFacetResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDatasetsApplePlaceFacetResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDatasetsApplePlacesSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDatasetsApplePlaceSearchResponse>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]
@@ -32948,6 +33264,724 @@ pub struct ModelDoordashStoreReviewsResponseDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxAppTagRef {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxAppTitle {
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "episodes", default, skip_serializing_if = "Option::is_none")]
+    pub episodes: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "in_library", default, skip_serializing_if = "Option::is_none")]
+    pub in_library: Option<bool>,
+    #[serde(rename = "play_count", default, skip_serializing_if = "Option::is_none")]
+    pub play_count: Option<i64>,
+    #[serde(rename = "protagonist", default, skip_serializing_if = "Option::is_none")]
+    pub protagonist: Option<String>,
+    #[serde(rename = "shelf_time", default, skip_serializing_if = "Option::is_none")]
+    pub shelf_time: Option<String>,
+    #[serde(rename = "shelf_time_ms", default, skip_serializing_if = "Option::is_none")]
+    pub shelf_time_ms: Option<i64>,
+    #[serde(rename = "tag_refs", default, skip_serializing_if = "Option::is_none")]
+    pub tag_refs: Option<Vec<ModelDramaboxAppTagRef>>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxBook {
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "episodes", default, skip_serializing_if = "Option::is_none")]
+    pub episodes: Option<i64>,
+    #[serde(rename = "follows", default, skip_serializing_if = "Option::is_none")]
+    pub follows: Option<i64>,
+    #[serde(rename = "genres", default, skip_serializing_if = "Option::is_none")]
+    pub genres: Option<Vec<ModelDramaboxGenre>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "listed_at", default, skip_serializing_if = "Option::is_none")]
+    pub listed_at: Option<String>,
+    #[serde(rename = "rating", default, skip_serializing_if = "Option::is_none")]
+    pub rating: Option<f64>,
+    #[serde(rename = "status", default, skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "views_display", default, skip_serializing_if = "Option::is_none")]
+    pub views_display: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxBrowseResponse {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelDramaboxBook>>,
+    #[serde(rename = "genre_id", default, skip_serializing_if = "Option::is_none")]
+    pub genre_id: Option<i64>,
+    #[serde(rename = "genre_name", default, skip_serializing_if = "Option::is_none")]
+    pub genre_name: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "total_pages", default, skip_serializing_if = "Option::is_none")]
+    pub total_pages: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxCategoriesResponse {
+    #[serde(rename = "groups", default, skip_serializing_if = "Option::is_none")]
+    pub groups: Option<Vec<ModelDramaboxCategoryGroup>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxCategoryBooksResponse {
+    #[serde(rename = "has_more", default, skip_serializing_if = "Option::is_none")]
+    pub has_more: Option<bool>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxCategoryGroup {
+    #[serde(rename = "key", default, skip_serializing_if = "Option::is_none")]
+    pub key: Option<String>,
+    #[serde(rename = "options", default, skip_serializing_if = "Option::is_none")]
+    pub options: Option<Vec<ModelDramaboxCategoryOption>>,
+    #[serde(rename = "row", default, skip_serializing_if = "Option::is_none")]
+    pub row: Option<i64>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxCategoryOption {
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxChannel {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxChannelsResponse {
+    #[serde(rename = "channels", default, skip_serializing_if = "Option::is_none")]
+    pub channels: Option<Vec<ModelDramaboxChannel>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxDramaResponse {
+    #[serde(rename = "available_languages", default, skip_serializing_if = "Option::is_none")]
+    pub available_languages: Option<Vec<String>>,
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "episode_count", default, skip_serializing_if = "Option::is_none")]
+    pub episode_count: Option<i64>,
+    #[serde(rename = "episodes", default, skip_serializing_if = "Option::is_none")]
+    pub episodes: Option<Vec<ModelDramaboxEpisode>>,
+    #[serde(rename = "follows", default, skip_serializing_if = "Option::is_none")]
+    pub follows: Option<i64>,
+    #[serde(rename = "genres", default, skip_serializing_if = "Option::is_none")]
+    pub genres: Option<Vec<ModelDramaboxGenre>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "listed_at", default, skip_serializing_if = "Option::is_none")]
+    pub listed_at: Option<String>,
+    #[serde(rename = "related", default, skip_serializing_if = "Option::is_none")]
+    pub related: Option<Vec<ModelDramaboxBook>>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "updated_at", default, skip_serializing_if = "Option::is_none")]
+    pub updated_at: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "views", default, skip_serializing_if = "Option::is_none")]
+    pub views: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxEpisode {
+    #[serde(rename = "duration_ms", default, skip_serializing_if = "Option::is_none")]
+    pub duration_ms: Option<i64>,
+    #[serde(rename = "free", default, skip_serializing_if = "Option::is_none")]
+    pub free: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
+    pub number: Option<i64>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "updated_at", default, skip_serializing_if = "Option::is_none")]
+    pub updated_at: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxGenre {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxGenresResponse {
+    #[serde(rename = "genres", default, skip_serializing_if = "Option::is_none")]
+    pub genres: Option<Vec<ModelDramaboxGenre>>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxHomeResponse {
+    #[serde(rename = "featured", default, skip_serializing_if = "Option::is_none")]
+    pub featured: Option<Vec<ModelDramaboxBook>>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "shelves", default, skip_serializing_if = "Option::is_none")]
+    pub shelves: Option<Vec<ModelDramaboxShelf>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxMoreResponse {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelDramaboxBook>>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "position", default, skip_serializing_if = "Option::is_none")]
+    pub position: Option<String>,
+    #[serde(rename = "total_pages", default, skip_serializing_if = "Option::is_none")]
+    pub total_pages: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxPerformerResponse {
+    #[serde(rename = "avatar", default, skip_serializing_if = "Option::is_none")]
+    pub avatar: Option<String>,
+    #[serde(rename = "followed", default, skip_serializing_if = "Option::is_none")]
+    pub followed: Option<bool>,
+    #[serde(rename = "gender", default, skip_serializing_if = "Option::is_none")]
+    pub gender: Option<i64>,
+    #[serde(rename = "has_more", default, skip_serializing_if = "Option::is_none")]
+    pub has_more: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(rename = "video_count", default, skip_serializing_if = "Option::is_none")]
+    pub video_count: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRankMeta {
+    #[serde(rename = "hot_code", default, skip_serializing_if = "Option::is_none")]
+    pub hot_code: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<i64>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRankResponse {
+    #[serde(rename = "rank_type", default, skip_serializing_if = "Option::is_none")]
+    pub rank_type: Option<i64>,
+    #[serde(rename = "tabs", default, skip_serializing_if = "Option::is_none")]
+    pub tabs: Option<Vec<ModelDramaboxRankTab>>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxRankedTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRankTab {
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRankedTitle {
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "data_from", default, skip_serializing_if = "Option::is_none")]
+    pub data_from: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "episodes", default, skip_serializing_if = "Option::is_none")]
+    pub episodes: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "in_library", default, skip_serializing_if = "Option::is_none")]
+    pub in_library: Option<bool>,
+    #[serde(rename = "position", default, skip_serializing_if = "Option::is_none")]
+    pub position: Option<i64>,
+    #[serde(rename = "protagonist", default, skip_serializing_if = "Option::is_none")]
+    pub protagonist: Option<String>,
+    #[serde(rename = "rank", default, skip_serializing_if = "Option::is_none")]
+    pub rank: Option<ModelDramaboxRankMeta>,
+    #[serde(rename = "shelf_time", default, skip_serializing_if = "Option::is_none")]
+    pub shelf_time: Option<String>,
+    #[serde(rename = "shelf_time_ms", default, skip_serializing_if = "Option::is_none")]
+    pub shelf_time_ms: Option<i64>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRecommendResponse {
+    #[serde(rename = "has_more", default, skip_serializing_if = "Option::is_none")]
+    pub has_more: Option<bool>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxSearchPerson {
+    #[serde(rename = "avatar", default, skip_serializing_if = "Option::is_none")]
+    pub avatar: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "videos", default, skip_serializing_if = "Option::is_none")]
+    pub videos: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxSearchResponse {
+    #[serde(rename = "is_more", default, skip_serializing_if = "Option::is_none")]
+    pub is_more: Option<bool>,
+    #[serde(rename = "keyword", default, skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "people", default, skip_serializing_if = "Option::is_none")]
+    pub people: Option<Vec<ModelDramaboxSearchPerson>>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxShelf {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelDramaboxBook>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "position", default, skip_serializing_if = "Option::is_none")]
+    pub position: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxSuggestItem {
+    #[serde(rename = "avatar", default, skip_serializing_if = "Option::is_none")]
+    pub avatar: Option<String>,
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "kind", default, skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "videos", default, skip_serializing_if = "Option::is_none")]
+    pub videos: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxSuggestResponse {
+    #[serde(rename = "items", default, skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<ModelDramaboxSuggestItem>>,
+    #[serde(rename = "keyword", default, skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTagResponse {
+    #[serde(rename = "has_more", default, skip_serializing_if = "Option::is_none")]
+    pub has_more: Option<bool>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "tag_id", default, skip_serializing_if = "Option::is_none")]
+    pub tag_id: Option<i64>,
+    #[serde(rename = "tag_name", default, skip_serializing_if = "Option::is_none")]
+    pub tag_name: Option<String>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTheaterBanner {
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "title_id", default, skip_serializing_if = "Option::is_none")]
+    pub title_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTheaterResponse {
+    #[serde(rename = "banners", default, skip_serializing_if = "Option::is_none")]
+    pub banners: Option<Vec<ModelDramaboxTheaterBanner>>,
+    #[serde(rename = "channel", default, skip_serializing_if = "Option::is_none")]
+    pub channel: Option<ModelDramaboxChannel>,
+    #[serde(rename = "has_more", default, skip_serializing_if = "Option::is_none")]
+    pub has_more: Option<bool>,
+    #[serde(rename = "hot_words", default, skip_serializing_if = "Option::is_none")]
+    pub hot_words: Option<Vec<String>>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "sections", default, skip_serializing_if = "Option::is_none")]
+    pub sections: Option<Vec<ModelDramaboxTheaterSection>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTheaterSection {
+    #[serde(rename = "style", default, skip_serializing_if = "Option::is_none")]
+    pub style: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTrendingResponse {
+    #[serde(rename = "hot", default, skip_serializing_if = "Option::is_none")]
+    pub hot: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(rename = "new_releases", default, skip_serializing_if = "Option::is_none")]
+    pub new_releases: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(rename = "preset_keyword", default, skip_serializing_if = "Option::is_none")]
+    pub preset_keyword: Option<String>,
+    #[serde(rename = "rank_tabs", default, skip_serializing_if = "Option::is_none")]
+    pub rank_tabs: Option<Vec<ModelDramaboxRankTab>>,
+    #[serde(rename = "trending", default, skip_serializing_if = "Option::is_none")]
+    pub trending: Option<Vec<ModelDramaboxAppTitle>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxBrowseResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxBrowseResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxCategoryBooksResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxCategoryBooksResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxChannelsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxChannelsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxDramaResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxDramaResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxGenresResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxGenresResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxHomeResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxHomeResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxMoreResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxMoreResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxPerformerResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxPerformerResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRankResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxRankResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxRecommendResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxRecommendResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxSuggestResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxSuggestResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTagResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxTagResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTheaterResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxTheaterResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelDramaboxTrendingResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelDramaboxTrendingResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelDuckduckgoImageResponse {
     #[serde(rename = "pagination", default, skip_serializing_if = "Option::is_none")]
     pub pagination: Option<ModelDuckduckgoSearchPagination>,
@@ -34505,6 +35539,194 @@ pub struct ModelEsAppReview {
     pub user_name: Option<String>,
     #[serde(rename = "version", default, skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelEsApplePlaceDatasetFacetItem {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "key", default, skip_serializing_if = "Option::is_none")]
+    pub key: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelEsApplePlaceDatasetItem {
+    #[serde(rename = "address", default, skip_serializing_if = "Option::is_none")]
+    pub address: Option<String>,
+    #[serde(rename = "alt_phones", default, skip_serializing_if = "Option::is_none")]
+    pub alt_phones: Option<Vec<String>>,
+    #[serde(rename = "catalog_country", default, skip_serializing_if = "Option::is_none")]
+    pub catalog_country: Option<String>,
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<String>>,
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "category_ids", default, skip_serializing_if = "Option::is_none")]
+    pub category_ids: Option<Vec<String>>,
+    #[serde(rename = "city", default, skip_serializing_if = "Option::is_none")]
+    pub city: Option<String>,
+    #[serde(rename = "country", default, skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "country_code", default, skip_serializing_if = "Option::is_none")]
+    pub country_code: Option<String>,
+    #[serde(rename = "county", default, skip_serializing_if = "Option::is_none")]
+    pub county: Option<String>,
+    #[serde(rename = "crawled_at", default, skip_serializing_if = "Option::is_none")]
+    pub crawled_at: Option<String>,
+    #[serde(rename = "discovery_keyword", default, skip_serializing_if = "Option::is_none")]
+    pub discovery_keyword: Option<String>,
+    #[serde(rename = "distance_m", default, skip_serializing_if = "Option::is_none")]
+    pub distance_m: Option<f64>,
+    #[serde(rename = "first_seen_at", default, skip_serializing_if = "Option::is_none")]
+    pub first_seen_at: Option<String>,
+    #[serde(rename = "hours", default, skip_serializing_if = "Option::is_none")]
+    pub hours: Option<Vec<ModelEsApplePlaceHours>>,
+    #[serde(rename = "hours_type", default, skip_serializing_if = "Option::is_none")]
+    pub hours_type: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "last_seen_at", default, skip_serializing_if = "Option::is_none")]
+    pub last_seen_at: Option<String>,
+    #[serde(rename = "latitude", default, skip_serializing_if = "Option::is_none")]
+    pub latitude: Option<f64>,
+    #[serde(rename = "location", default, skip_serializing_if = "Option::is_none")]
+    pub location: Option<ModelEsGeoPoint>,
+    #[serde(rename = "longitude", default, skip_serializing_if = "Option::is_none")]
+    pub longitude: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "neighborhood", default, skip_serializing_if = "Option::is_none")]
+    pub neighborhood: Option<String>,
+    #[serde(rename = "phone", default, skip_serializing_if = "Option::is_none")]
+    pub phone: Option<String>,
+    #[serde(rename = "photo_url", default, skip_serializing_if = "Option::is_none")]
+    pub photo_url: Option<String>,
+    #[serde(rename = "place_id", default, skip_serializing_if = "Option::is_none")]
+    pub place_id: Option<String>,
+    #[serde(rename = "postal_code", default, skip_serializing_if = "Option::is_none")]
+    pub postal_code: Option<String>,
+    #[serde(rename = "price_level", default, skip_serializing_if = "Option::is_none")]
+    pub price_level: Option<i64>,
+    #[serde(rename = "price_symbol", default, skip_serializing_if = "Option::is_none")]
+    pub price_symbol: Option<String>,
+    #[serde(rename = "rating", default, skip_serializing_if = "Option::is_none")]
+    pub rating: Option<f64>,
+    #[serde(rename = "rating_count", default, skip_serializing_if = "Option::is_none")]
+    pub rating_count: Option<i64>,
+    #[serde(rename = "rating_max", default, skip_serializing_if = "Option::is_none")]
+    pub rating_max: Option<i64>,
+    #[serde(rename = "schema_version", default, skip_serializing_if = "Option::is_none")]
+    pub schema_version: Option<i64>,
+    #[serde(rename = "state", default, skip_serializing_if = "Option::is_none")]
+    pub state: Option<String>,
+    #[serde(rename = "state_code", default, skip_serializing_if = "Option::is_none")]
+    pub state_code: Option<String>,
+    #[serde(rename = "street", default, skip_serializing_if = "Option::is_none")]
+    pub street: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "website", default, skip_serializing_if = "Option::is_none")]
+    pub website: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelEsApplePlaceHours {
+    #[serde(rename = "close", default, skip_serializing_if = "Option::is_none")]
+    pub close: Option<String>,
+    #[serde(rename = "day", default, skip_serializing_if = "Option::is_none")]
+    pub day: Option<String>,
+    #[serde(rename = "open", default, skip_serializing_if = "Option::is_none")]
+    pub open: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelEsApplePlaceRecord {
+    #[serde(rename = "address", default, skip_serializing_if = "Option::is_none")]
+    pub address: Option<String>,
+    #[serde(rename = "alt_phones", default, skip_serializing_if = "Option::is_none")]
+    pub alt_phones: Option<Vec<String>>,
+    #[serde(rename = "catalog_country", default, skip_serializing_if = "Option::is_none")]
+    pub catalog_country: Option<String>,
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<String>>,
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "category_ids", default, skip_serializing_if = "Option::is_none")]
+    pub category_ids: Option<Vec<String>>,
+    #[serde(rename = "city", default, skip_serializing_if = "Option::is_none")]
+    pub city: Option<String>,
+    #[serde(rename = "country", default, skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "country_code", default, skip_serializing_if = "Option::is_none")]
+    pub country_code: Option<String>,
+    #[serde(rename = "county", default, skip_serializing_if = "Option::is_none")]
+    pub county: Option<String>,
+    #[serde(rename = "crawled_at", default, skip_serializing_if = "Option::is_none")]
+    pub crawled_at: Option<String>,
+    #[serde(rename = "discovery_keyword", default, skip_serializing_if = "Option::is_none")]
+    pub discovery_keyword: Option<String>,
+    #[serde(rename = "first_seen_at", default, skip_serializing_if = "Option::is_none")]
+    pub first_seen_at: Option<String>,
+    #[serde(rename = "hours", default, skip_serializing_if = "Option::is_none")]
+    pub hours: Option<Vec<ModelEsApplePlaceHours>>,
+    #[serde(rename = "hours_type", default, skip_serializing_if = "Option::is_none")]
+    pub hours_type: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "last_seen_at", default, skip_serializing_if = "Option::is_none")]
+    pub last_seen_at: Option<String>,
+    #[serde(rename = "latitude", default, skip_serializing_if = "Option::is_none")]
+    pub latitude: Option<f64>,
+    #[serde(rename = "location", default, skip_serializing_if = "Option::is_none")]
+    pub location: Option<ModelEsGeoPoint>,
+    #[serde(rename = "longitude", default, skip_serializing_if = "Option::is_none")]
+    pub longitude: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "neighborhood", default, skip_serializing_if = "Option::is_none")]
+    pub neighborhood: Option<String>,
+    #[serde(rename = "phone", default, skip_serializing_if = "Option::is_none")]
+    pub phone: Option<String>,
+    #[serde(rename = "photo_url", default, skip_serializing_if = "Option::is_none")]
+    pub photo_url: Option<String>,
+    #[serde(rename = "place_id", default, skip_serializing_if = "Option::is_none")]
+    pub place_id: Option<String>,
+    #[serde(rename = "postal_code", default, skip_serializing_if = "Option::is_none")]
+    pub postal_code: Option<String>,
+    #[serde(rename = "price_level", default, skip_serializing_if = "Option::is_none")]
+    pub price_level: Option<i64>,
+    #[serde(rename = "price_symbol", default, skip_serializing_if = "Option::is_none")]
+    pub price_symbol: Option<String>,
+    #[serde(rename = "rating", default, skip_serializing_if = "Option::is_none")]
+    pub rating: Option<f64>,
+    #[serde(rename = "rating_count", default, skip_serializing_if = "Option::is_none")]
+    pub rating_count: Option<i64>,
+    #[serde(rename = "rating_max", default, skip_serializing_if = "Option::is_none")]
+    pub rating_max: Option<i64>,
+    #[serde(rename = "schema_version", default, skip_serializing_if = "Option::is_none")]
+    pub schema_version: Option<i64>,
+    #[serde(rename = "state", default, skip_serializing_if = "Option::is_none")]
+    pub state: Option<String>,
+    #[serde(rename = "state_code", default, skip_serializing_if = "Option::is_none")]
+    pub state_code: Option<String>,
+    #[serde(rename = "street", default, skip_serializing_if = "Option::is_none")]
+    pub street: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "website", default, skip_serializing_if = "Option::is_none")]
+    pub website: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -70442,6 +71664,64 @@ pub struct ModelJumiaProduct {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaRatingBucket {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "stars", default, skip_serializing_if = "Option::is_none")]
+    pub stars: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaReview {
+    #[serde(rename = "author", default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<String>,
+    #[serde(rename = "date", default, skip_serializing_if = "Option::is_none")]
+    pub date: Option<String>,
+    #[serde(rename = "rating", default, skip_serializing_if = "Option::is_none")]
+    pub rating: Option<i64>,
+    #[serde(rename = "text", default, skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaReviewsResponse {
+    #[serde(rename = "average_rating", default, skip_serializing_if = "Option::is_none")]
+    pub average_rating: Option<f64>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "country", default, skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "has_next", default, skip_serializing_if = "Option::is_none")]
+    pub has_next: Option<bool>,
+    #[serde(rename = "histogram", default, skip_serializing_if = "Option::is_none")]
+    pub histogram: Option<Vec<ModelJumiaRatingBucket>>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "rating_count", default, skip_serializing_if = "Option::is_none")]
+    pub rating_count: Option<i64>,
+    #[serde(rename = "review_count", default, skip_serializing_if = "Option::is_none")]
+    pub review_count: Option<i64>,
+    #[serde(rename = "reviews", default, skip_serializing_if = "Option::is_none")]
+    pub reviews: Option<Vec<ModelJumiaReview>>,
+    #[serde(rename = "sku", default, skip_serializing_if = "Option::is_none")]
+    pub sku: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelJumiaSeller {
     #[serde(rename = "followers", default, skip_serializing_if = "Option::is_none")]
     pub followers: Option<i64>,
@@ -70455,6 +71735,78 @@ pub struct ModelJumiaSeller {
     pub shipping_speed: Option<String>,
     #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaSitemapFile {
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "last_modified", default, skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaSitemapUrl {
+    #[serde(rename = "image", default, skip_serializing_if = "Option::is_none")]
+    pub image: Option<String>,
+    #[serde(rename = "last_modified", default, skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaSitemapUrlsResponse {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "country", default, skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "has_next", default, skip_serializing_if = "Option::is_none")]
+    pub has_next: Option<bool>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "sitemap", default, skip_serializing_if = "Option::is_none")]
+    pub sitemap: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(rename = "total_count", default, skip_serializing_if = "Option::is_none")]
+    pub total_count: Option<i64>,
+    #[serde(rename = "urls", default, skip_serializing_if = "Option::is_none")]
+    pub urls: Option<Vec<ModelJumiaSitemapUrl>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaSitemapsResponse {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "country", default, skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "sitemaps", default, skip_serializing_if = "Option::is_none")]
+    pub sitemaps: Option<Vec<ModelJumiaSitemapFile>>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -70511,6 +71863,42 @@ pub struct ModelJumiaProductResponseDoc {
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelJumiaProduct>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaReviewsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelJumiaReviewsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaSitemapUrlsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelJumiaSitemapUrlsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelJumiaSitemapsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelJumiaSitemapsResponse>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]
@@ -72813,6 +74201,974 @@ pub struct ModelKhaleejtimesAuthorResponse {
     pub twitter_handle: Option<String>,
     #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelKickCategory>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickCategory {
+    #[serde(rename = "icon", default, skip_serializing_if = "Option::is_none")]
+    pub icon: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickCategoryHit {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "viewers", default, skip_serializing_if = "Option::is_none")]
+    pub viewers: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickCategoryRef {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelChatroomResponse {
+    #[serde(rename = "account_age", default, skip_serializing_if = "Option::is_none")]
+    pub account_age: Option<ModelKickChatMode>,
+    #[serde(rename = "chatroom_id", default, skip_serializing_if = "Option::is_none")]
+    pub chatroom_id: Option<i64>,
+    #[serde(rename = "emotes_only", default, skip_serializing_if = "Option::is_none")]
+    pub emotes_only: Option<ModelKickChatMode>,
+    #[serde(rename = "followers_only", default, skip_serializing_if = "Option::is_none")]
+    pub followers_only: Option<ModelKickChatMode>,
+    #[serde(rename = "gifts_enabled", default, skip_serializing_if = "Option::is_none")]
+    pub gifts_enabled: Option<bool>,
+    #[serde(rename = "rules", default, skip_serializing_if = "Option::is_none")]
+    pub rules: Option<String>,
+    #[serde(rename = "slow_mode", default, skip_serializing_if = "Option::is_none")]
+    pub slow_mode: Option<ModelKickChatMode>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "subscribers_only", default, skip_serializing_if = "Option::is_none")]
+    pub subscribers_only: Option<ModelKickChatMode>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelEmotesResponse {
+    #[serde(rename = "channel", default, skip_serializing_if = "Option::is_none")]
+    pub channel: Option<Vec<ModelKickEmote>>,
+    #[serde(rename = "emoji", default, skip_serializing_if = "Option::is_none")]
+    pub emoji: Option<Vec<ModelKickEmote>>,
+    #[serde(rename = "global", default, skip_serializing_if = "Option::is_none")]
+    pub global: Option<Vec<ModelKickEmote>>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelHit {
+    #[serde(rename = "followers", default, skip_serializing_if = "Option::is_none")]
+    pub followers: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "live", default, skip_serializing_if = "Option::is_none")]
+    pub live: Option<bool>,
+    #[serde(rename = "profile_picture", default, skip_serializing_if = "Option::is_none")]
+    pub profile_picture: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelLink {
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "kind", default, skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "order", default, skip_serializing_if = "Option::is_none")]
+    pub order: Option<i64>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelLinksResponse {
+    #[serde(rename = "links", default, skip_serializing_if = "Option::is_none")]
+    pub links: Option<Vec<ModelKickChannelLink>>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelRef {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "profile_picture", default, skip_serializing_if = "Option::is_none")]
+    pub profile_picture: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelResponse {
+    #[serde(rename = "affiliate", default, skip_serializing_if = "Option::is_none")]
+    pub affiliate: Option<bool>,
+    #[serde(rename = "banned", default, skip_serializing_if = "Option::is_none")]
+    pub banned: Option<bool>,
+    #[serde(rename = "banner_url", default, skip_serializing_if = "Option::is_none")]
+    pub banner_url: Option<String>,
+    #[serde(rename = "bio", default, skip_serializing_if = "Option::is_none")]
+    pub bio: Option<String>,
+    #[serde(rename = "followers", default, skip_serializing_if = "Option::is_none")]
+    pub followers: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "live", default, skip_serializing_if = "Option::is_none")]
+    pub live: Option<ModelKickLiveStream>,
+    #[serde(rename = "profile_picture", default, skip_serializing_if = "Option::is_none")]
+    pub profile_picture: Option<String>,
+    #[serde(rename = "recent_categories", default, skip_serializing_if = "Option::is_none")]
+    pub recent_categories: Option<Vec<ModelKickCategoryRef>>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "socials", default, skip_serializing_if = "Option::is_none")]
+    pub socials: Option<ModelKickSocials>,
+    #[serde(rename = "subscription_enabled", default, skip_serializing_if = "Option::is_none")]
+    pub subscription_enabled: Option<bool>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(rename = "vod_enabled", default, skip_serializing_if = "Option::is_none")]
+    pub vod_enabled: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelStreamsResponse {
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "streams", default, skip_serializing_if = "Option::is_none")]
+    pub streams: Option<Vec<ModelKickStreamSession>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelVideosResponse {
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "videos", default, skip_serializing_if = "Option::is_none")]
+    pub videos: Option<Vec<ModelKickVideo>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChatMode {
+    #[serde(rename = "enabled", default, skip_serializing_if = "Option::is_none")]
+    pub enabled: Option<bool>,
+    #[serde(rename = "interval_seconds", default, skip_serializing_if = "Option::is_none")]
+    pub interval_seconds: Option<i64>,
+    #[serde(rename = "minutes", default, skip_serializing_if = "Option::is_none")]
+    pub minutes: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickClip {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<ModelKickCategoryRef>,
+    #[serde(rename = "channel", default, skip_serializing_if = "Option::is_none")]
+    pub channel: Option<ModelKickChannelRef>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "duration_seconds", default, skip_serializing_if = "Option::is_none")]
+    pub duration_seconds: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "likes", default, skip_serializing_if = "Option::is_none")]
+    pub likes: Option<i64>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "started_at", default, skip_serializing_if = "Option::is_none")]
+    pub started_at: Option<String>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "video_id", default, skip_serializing_if = "Option::is_none")]
+    pub video_id: Option<String>,
+    #[serde(rename = "video_offset_seconds", default, skip_serializing_if = "Option::is_none")]
+    pub video_offset_seconds: Option<i64>,
+    #[serde(rename = "views", default, skip_serializing_if = "Option::is_none")]
+    pub views: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickClipResponse {
+    #[serde(rename = "clip", default, skip_serializing_if = "Option::is_none")]
+    pub clip: Option<ModelKickClip>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickClipsResponse {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "clips", default, skip_serializing_if = "Option::is_none")]
+    pub clips: Option<Vec<ModelKickClip>>,
+    #[serde(rename = "next_cursor", default, skip_serializing_if = "Option::is_none")]
+    pub next_cursor: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "time", default, skip_serializing_if = "Option::is_none")]
+    pub time: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDirectoryStream {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<ModelKickCategoryRef>,
+    #[serde(rename = "channel", default, skip_serializing_if = "Option::is_none")]
+    pub channel: Option<ModelKickChannelRef>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "started_at", default, skip_serializing_if = "Option::is_none")]
+    pub started_at: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "viewers", default, skip_serializing_if = "Option::is_none")]
+    pub viewers: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDropCampaign {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<ModelKickCategoryRef>,
+    #[serde(rename = "channel_count", default, skip_serializing_if = "Option::is_none")]
+    pub channel_count: Option<i64>,
+    #[serde(rename = "channels", default, skip_serializing_if = "Option::is_none")]
+    pub channels: Option<Vec<ModelKickDropChannel>>,
+    #[serde(rename = "ends_at", default, skip_serializing_if = "Option::is_none")]
+    pub ends_at: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "organization", default, skip_serializing_if = "Option::is_none")]
+    pub organization: Option<ModelKickDropOrganization>,
+    #[serde(rename = "rewards", default, skip_serializing_if = "Option::is_none")]
+    pub rewards: Option<Vec<ModelKickDropReward>>,
+    #[serde(rename = "rule", default, skip_serializing_if = "Option::is_none")]
+    pub rule: Option<String>,
+    #[serde(rename = "starts_at", default, skip_serializing_if = "Option::is_none")]
+    pub starts_at: Option<String>,
+    #[serde(rename = "status", default, skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDropChannel {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "profile_picture", default, skip_serializing_if = "Option::is_none")]
+    pub profile_picture: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDropOrganization {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "logo_url", default, skip_serializing_if = "Option::is_none")]
+    pub logo_url: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDropReward {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "required_units", default, skip_serializing_if = "Option::is_none")]
+    pub required_units: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDropsResponse {
+    #[serde(rename = "campaigns", default, skip_serializing_if = "Option::is_none")]
+    pub campaigns: Option<Vec<ModelKickDropCampaign>>,
+    #[serde(rename = "status", default, skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickEmote {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "subscribers_only", default, skip_serializing_if = "Option::is_none")]
+    pub subscribers_only: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickGift {
+    #[serde(rename = "character_limit", default, skip_serializing_if = "Option::is_none")]
+    pub character_limit: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "kicks", default, skip_serializing_if = "Option::is_none")]
+    pub kicks: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "pinned_seconds", default, skip_serializing_if = "Option::is_none")]
+    pub pinned_seconds: Option<i64>,
+    #[serde(rename = "tier", default, skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickGiftsResponse {
+    #[serde(rename = "gifts", default, skip_serializing_if = "Option::is_none")]
+    pub gifts: Option<Vec<ModelKickGift>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickLanguage {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickLanguagesResponse {
+    #[serde(rename = "languages", default, skip_serializing_if = "Option::is_none")]
+    pub languages: Option<Vec<ModelKickLanguage>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickLiveStream {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelKickCategoryRef>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "started_at", default, skip_serializing_if = "Option::is_none")]
+    pub started_at: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "viewers", default, skip_serializing_if = "Option::is_none")]
+    pub viewers: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickLivestreamsResponse {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "livestreams", default, skip_serializing_if = "Option::is_none")]
+    pub livestreams: Option<Vec<ModelKickDirectoryStream>>,
+    #[serde(rename = "next_cursor", default, skip_serializing_if = "Option::is_none")]
+    pub next_cursor: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSearchCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelKickCategoryHit>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSearchChannelsResponse {
+    #[serde(rename = "channels", default, skip_serializing_if = "Option::is_none")]
+    pub channels: Option<Vec<ModelKickChannelHit>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSocials {
+    #[serde(rename = "discord", default, skip_serializing_if = "Option::is_none")]
+    pub discord: Option<String>,
+    #[serde(rename = "facebook", default, skip_serializing_if = "Option::is_none")]
+    pub facebook: Option<String>,
+    #[serde(rename = "instagram", default, skip_serializing_if = "Option::is_none")]
+    pub instagram: Option<String>,
+    #[serde(rename = "tiktok", default, skip_serializing_if = "Option::is_none")]
+    pub tiktok: Option<String>,
+    #[serde(rename = "twitter", default, skip_serializing_if = "Option::is_none")]
+    pub twitter: Option<String>,
+    #[serde(rename = "youtube", default, skip_serializing_if = "Option::is_none")]
+    pub youtube: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickStreamSession {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelKickCategoryRef>>,
+    #[serde(rename = "duration_ms", default, skip_serializing_if = "Option::is_none")]
+    pub duration_ms: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "live", default, skip_serializing_if = "Option::is_none")]
+    pub live: Option<bool>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "started_at", default, skip_serializing_if = "Option::is_none")]
+    pub started_at: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "video_url", default, skip_serializing_if = "Option::is_none")]
+    pub video_url: Option<String>,
+    #[serde(rename = "video_uuid", default, skip_serializing_if = "Option::is_none")]
+    pub video_uuid: Option<String>,
+    #[serde(rename = "video_views", default, skip_serializing_if = "Option::is_none")]
+    pub video_views: Option<i64>,
+    #[serde(rename = "viewer_count", default, skip_serializing_if = "Option::is_none")]
+    pub viewer_count: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSubcategoriesResponse {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "reachable", default, skip_serializing_if = "Option::is_none")]
+    pub reachable: Option<i64>,
+    #[serde(rename = "subcategories", default, skip_serializing_if = "Option::is_none")]
+    pub subcategories: Option<Vec<ModelKickSubcategory>>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSubcategory {
+    #[serde(rename = "banner_url", default, skip_serializing_if = "Option::is_none")]
+    pub banner_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "followers", default, skip_serializing_if = "Option::is_none")]
+    pub followers: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "parent_id", default, skip_serializing_if = "Option::is_none")]
+    pub parent_id: Option<i64>,
+    #[serde(rename = "parent_name", default, skip_serializing_if = "Option::is_none")]
+    pub parent_name: Option<String>,
+    #[serde(rename = "parent_slug", default, skip_serializing_if = "Option::is_none")]
+    pub parent_slug: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "viewers", default, skip_serializing_if = "Option::is_none")]
+    pub viewers: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSubcategoryResponse {
+    #[serde(rename = "subcategory", default, skip_serializing_if = "Option::is_none")]
+    pub subcategory: Option<ModelKickSubcategory>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickTopChannelsResponse {
+    #[serde(rename = "channels", default, skip_serializing_if = "Option::is_none")]
+    pub channels: Option<Vec<ModelKickChannelHit>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickVideo {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelKickCategoryRef>>,
+    #[serde(rename = "duration_ms", default, skip_serializing_if = "Option::is_none")]
+    pub duration_ms: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "live", default, skip_serializing_if = "Option::is_none")]
+    pub live: Option<bool>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "started_at", default, skip_serializing_if = "Option::is_none")]
+    pub started_at: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "uuid", default, skip_serializing_if = "Option::is_none")]
+    pub uuid: Option<String>,
+    #[serde(rename = "views", default, skip_serializing_if = "Option::is_none")]
+    pub views: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickVideoResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelKickCategoryRef>>,
+    #[serde(rename = "channel", default, skip_serializing_if = "Option::is_none")]
+    pub channel: Option<ModelKickChannelRef>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "duration_ms", default, skip_serializing_if = "Option::is_none")]
+    pub duration_ms: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "started_at", default, skip_serializing_if = "Option::is_none")]
+    pub started_at: Option<String>,
+    #[serde(rename = "status", default, skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "uuid", default, skip_serializing_if = "Option::is_none")]
+    pub uuid: Option<String>,
+    #[serde(rename = "viewer_count", default, skip_serializing_if = "Option::is_none")]
+    pub viewer_count: Option<i64>,
+    #[serde(rename = "views", default, skip_serializing_if = "Option::is_none")]
+    pub views: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickCategoryClipsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickClipsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelChatroomResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickChannelChatroomResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelClipsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickClipsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelEmotesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickChannelEmotesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelLinksResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickChannelLinksResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickChannelResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelStreamsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickChannelStreamsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickChannelVideosResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickChannelVideosResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickClipResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickClipResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickClipsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickClipsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickDropsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickDropsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickGiftsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickGiftsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickLanguagesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickLanguagesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickLivestreamsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickLivestreamsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSearchCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickSearchCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSearchChannelsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickSearchChannelsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSubcategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickSubcategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickSubcategoryResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickSubcategoryResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickTopChannelsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickTopChannelsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelKickVideoResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelKickVideoResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -95916,6 +98272,378 @@ pub struct ModelPredictionsPredictionsRulesResponseDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingBigMover {
+    #[serde(rename = "change", default, skip_serializing_if = "Option::is_none")]
+    pub change: Option<f64>,
+    #[serde(rename = "console", default, skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "console_slug", default, skip_serializing_if = "Option::is_none")]
+    pub console_slug: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingBigMoversResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelPricechartingCategory>>,
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "change_unit", default, skip_serializing_if = "Option::is_none")]
+    pub change_unit: Option<String>,
+    #[serde(rename = "price_label", default, skip_serializing_if = "Option::is_none")]
+    pub price_label: Option<String>,
+    #[serde(rename = "products", default, skip_serializing_if = "Option::is_none")]
+    pub products: Option<Vec<ModelPricechartingBigMover>>,
+    #[serde(rename = "region", default, skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelPricechartingCategory>>,
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "consoles", default, skip_serializing_if = "Option::is_none")]
+    pub consoles: Option<Vec<ModelPricechartingConsole>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingCategory {
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingConsole {
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingConsoleProduct {
+    #[serde(rename = "complete_price", default, skip_serializing_if = "Option::is_none")]
+    pub complete_price: Option<f64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "loose_price", default, skip_serializing_if = "Option::is_none")]
+    pub loose_price: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "new_price", default, skip_serializing_if = "Option::is_none")]
+    pub new_price: Option<f64>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingConsoleResponse {
+    #[serde(rename = "console", default, skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "cursor", default, skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<i64>,
+    #[serde(rename = "next_cursor", default, skip_serializing_if = "Option::is_none")]
+    pub next_cursor: Option<i64>,
+    #[serde(rename = "price_labels", default, skip_serializing_if = "Option::is_none")]
+    pub price_labels: Option<Vec<String>>,
+    #[serde(rename = "products", default, skip_serializing_if = "Option::is_none")]
+    pub products: Option<Vec<ModelPricechartingConsoleProduct>>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingGradeCount {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "grade", default, skip_serializing_if = "Option::is_none")]
+    pub grade: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingPopulation {
+    #[serde(rename = "cgc", default, skip_serializing_if = "Option::is_none")]
+    pub cgc: Option<Vec<ModelPricechartingGradeCount>>,
+    #[serde(rename = "psa", default, skip_serializing_if = "Option::is_none")]
+    pub psa: Option<Vec<ModelPricechartingGradeCount>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingPriceCell {
+    #[serde(rename = "change", default, skip_serializing_if = "Option::is_none")]
+    pub change: Option<f64>,
+    #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingPriceHistoryResponse {
+    #[serde(rename = "currency", default, skip_serializing_if = "Option::is_none")]
+    pub currency: Option<String>,
+    #[serde(rename = "population", default, skip_serializing_if = "Option::is_none")]
+    pub population: Option<ModelPricechartingPopulation>,
+    #[serde(rename = "product", default, skip_serializing_if = "Option::is_none")]
+    pub product: Option<ModelPricechartingProductRef>,
+    #[serde(rename = "series", default, skip_serializing_if = "Option::is_none")]
+    pub series: Option<Vec<ModelPricechartingPriceSeries>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingPricePoint {
+    #[serde(rename = "date", default, skip_serializing_if = "Option::is_none")]
+    pub date: Option<String>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingPriceSeries {
+    #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+    #[serde(rename = "points", default, skip_serializing_if = "Option::is_none")]
+    pub points: Option<Vec<ModelPricechartingPricePoint>>,
+    #[serde(rename = "tab", default, skip_serializing_if = "Option::is_none")]
+    pub tab: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingProduct {
+    #[serde(rename = "attributes", default, skip_serializing_if = "Option::is_none")]
+    pub attributes: Option<std::collections::BTreeMap<String, String>>,
+    #[serde(rename = "console", default, skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "console_slug", default, skip_serializing_if = "Option::is_none")]
+    pub console_slug: Option<String>,
+    #[serde(rename = "full_prices", default, skip_serializing_if = "Option::is_none")]
+    pub full_prices: Option<Vec<ModelPricechartingPriceCell>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "prices", default, skip_serializing_if = "Option::is_none")]
+    pub prices: Option<Vec<ModelPricechartingPriceCell>>,
+    #[serde(rename = "recent_sales", default, skip_serializing_if = "Option::is_none")]
+    pub recent_sales: Option<Vec<ModelPricechartingSale>>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingProductRef {
+    #[serde(rename = "console", default, skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "console_slug", default, skip_serializing_if = "Option::is_none")]
+    pub console_slug: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingProductResponse {
+    #[serde(rename = "product", default, skip_serializing_if = "Option::is_none")]
+    pub product: Option<ModelPricechartingProduct>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingSale {
+    #[serde(rename = "date", default, skip_serializing_if = "Option::is_none")]
+    pub date: Option<String>,
+    #[serde(rename = "grade", default, skip_serializing_if = "Option::is_none")]
+    pub grade: Option<String>,
+    #[serde(rename = "item_id", default, skip_serializing_if = "Option::is_none")]
+    pub item_id: Option<String>,
+    #[serde(rename = "item_url", default, skip_serializing_if = "Option::is_none")]
+    pub item_url: Option<String>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(rename = "source", default, skip_serializing_if = "Option::is_none")]
+    pub source: Option<String>,
+    #[serde(rename = "tab", default, skip_serializing_if = "Option::is_none")]
+    pub tab: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingSearchProduct {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "complete_price", default, skip_serializing_if = "Option::is_none")]
+    pub complete_price: Option<f64>,
+    #[serde(rename = "console", default, skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "console_uid", default, skip_serializing_if = "Option::is_none")]
+    pub console_uid: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "loose_price", default, skip_serializing_if = "Option::is_none")]
+    pub loose_price: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "new_price", default, skip_serializing_if = "Option::is_none")]
+    pub new_price: Option<f64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingSearchResponse {
+    #[serde(rename = "products", default, skip_serializing_if = "Option::is_none")]
+    pub products: Option<Vec<ModelPricechartingSearchProduct>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingBigMoversResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPricechartingBigMoversResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPricechartingCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingConsoleResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPricechartingConsoleResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingPriceHistoryResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPricechartingPriceHistoryResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingProductResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPricechartingProductResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPricechartingSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPricechartingSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelPristineauctionAuctionStatus {
     #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
     pub slug: Option<String>,
@@ -98510,6 +101238,42 @@ pub struct ModelPsaPriceGuideSetResponse {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPsaPriceGuideSetSummary {
+    #[serde(rename = "category_name", default, skip_serializing_if = "Option::is_none")]
+    pub category_name: Option<String>,
+    #[serde(rename = "category_path", default, skip_serializing_if = "Option::is_none")]
+    pub category_path: Option<String>,
+    #[serde(rename = "set_id", default, skip_serializing_if = "Option::is_none")]
+    pub set_id: Option<i64>,
+    #[serde(rename = "set_name", default, skip_serializing_if = "Option::is_none")]
+    pub set_name: Option<String>,
+    #[serde(rename = "set_path", default, skip_serializing_if = "Option::is_none")]
+    pub set_path: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPsaPriceGuideSetsResponse {
+    #[serde(rename = "category_path", default, skip_serializing_if = "Option::is_none")]
+    pub category_path: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "sets", default, skip_serializing_if = "Option::is_none")]
+    pub sets: Option<Vec<ModelPsaPriceGuideSetSummary>>,
+    #[serde(rename = "total_count", default, skip_serializing_if = "Option::is_none")]
+    pub total_count: Option<i64>,
+    #[serde(rename = "unavailable_categories", default, skip_serializing_if = "Option::is_none")]
+    pub unavailable_categories: Option<Vec<String>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelPsaProBatFactsCategoriesResponse {
     #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
     pub categories: Option<Vec<ModelPsaProBatFactsCategory>>,
@@ -98793,6 +101557,18 @@ pub struct ModelPsaPriceGuideSetResponseDoc {
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelPsaPriceGuideSetResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelPsaPriceGuideSetsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelPsaPriceGuideSetsResponse>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]
@@ -102995,6 +105771,520 @@ pub struct ModelRedfinSimilarResponse {
     pub property_id: Option<String>,
     #[serde(rename = "results", default, skip_serializing_if = "Option::is_none")]
     pub results: Option<Vec<ModelRedfinPropertyItem>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortActor {
+    #[serde(rename = "imdb_url", default, skip_serializing_if = "Option::is_none")]
+    pub imdb_url: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "photo_url", default, skip_serializing_if = "Option::is_none")]
+    pub photo_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortBook {
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "episodes", default, skip_serializing_if = "Option::is_none")]
+    pub episodes: Option<i64>,
+    #[serde(rename = "favorites", default, skip_serializing_if = "Option::is_none")]
+    pub favorites: Option<i64>,
+    #[serde(rename = "first_paid_episode", default, skip_serializing_if = "Option::is_none")]
+    pub first_paid_episode: Option<i64>,
+    #[serde(rename = "has_trailer", default, skip_serializing_if = "Option::is_none")]
+    pub has_trailer: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "plays", default, skip_serializing_if = "Option::is_none")]
+    pub plays: Option<i64>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortEpisode {
+    #[serde(rename = "free", default, skip_serializing_if = "Option::is_none")]
+    pub free: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "kind", default, skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "likes", default, skip_serializing_if = "Option::is_none")]
+    pub likes: Option<i64>,
+    #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
+    pub number: Option<i64>,
+    #[serde(rename = "published_at", default, skip_serializing_if = "Option::is_none")]
+    pub published_at: Option<String>,
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelReelshortFandomCategory>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomCategory {
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "posts", default, skip_serializing_if = "Option::is_none")]
+    pub posts: Option<i64>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomPost {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<String>>,
+    #[serde(rename = "excerpt", default, skip_serializing_if = "Option::is_none")]
+    pub excerpt: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "published_at", default, skip_serializing_if = "Option::is_none")]
+    pub published_at: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomPostResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<String>>,
+    #[serde(rename = "content", default, skip_serializing_if = "Option::is_none")]
+    pub content: Option<String>,
+    #[serde(rename = "excerpt", default, skip_serializing_if = "Option::is_none")]
+    pub excerpt: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "published_at", default, skip_serializing_if = "Option::is_none")]
+    pub published_at: Option<String>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "title_ids", default, skip_serializing_if = "Option::is_none")]
+    pub title_ids: Option<Vec<String>>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomPostsResponse {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "posts", default, skip_serializing_if = "Option::is_none")]
+    pub posts: Option<Vec<ModelReelshortFandomPost>>,
+    #[serde(rename = "search", default, skip_serializing_if = "Option::is_none")]
+    pub search: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(rename = "total_pages", default, skip_serializing_if = "Option::is_none")]
+    pub total_pages: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortHomeResponse {
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "shelves", default, skip_serializing_if = "Option::is_none")]
+    pub shelves: Option<Vec<ModelReelshortShelf>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortMovieResponse {
+    #[serde(rename = "actors", default, skip_serializing_if = "Option::is_none")]
+    pub actors: Option<Vec<ModelReelshortActor>>,
+    #[serde(rename = "ai_generated", default, skip_serializing_if = "Option::is_none")]
+    pub ai_generated: Option<bool>,
+    #[serde(rename = "badge", default, skip_serializing_if = "Option::is_none")]
+    pub badge: Option<String>,
+    #[serde(rename = "cover_url", default, skip_serializing_if = "Option::is_none")]
+    pub cover_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "dubbed", default, skip_serializing_if = "Option::is_none")]
+    pub dubbed: Option<bool>,
+    #[serde(rename = "episode_count", default, skip_serializing_if = "Option::is_none")]
+    pub episode_count: Option<i64>,
+    #[serde(rename = "episodes", default, skip_serializing_if = "Option::is_none")]
+    pub episodes: Option<Vec<ModelReelshortEpisode>>,
+    #[serde(rename = "favorites", default, skip_serializing_if = "Option::is_none")]
+    pub favorites: Option<i64>,
+    #[serde(rename = "first_paid_episode", default, skip_serializing_if = "Option::is_none")]
+    pub first_paid_episode: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "imdb_url", default, skip_serializing_if = "Option::is_none")]
+    pub imdb_url: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "online_at", default, skip_serializing_if = "Option::is_none")]
+    pub online_at: Option<String>,
+    #[serde(rename = "original_language", default, skip_serializing_if = "Option::is_none")]
+    pub original_language: Option<String>,
+    #[serde(rename = "plays", default, skip_serializing_if = "Option::is_none")]
+    pub plays: Option<i64>,
+    #[serde(rename = "published_at", default, skip_serializing_if = "Option::is_none")]
+    pub published_at: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<ModelReelshortTag>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "update_status", default, skip_serializing_if = "Option::is_none")]
+    pub update_status: Option<i64>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortNewReleasesResponse {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelReelshortBook>>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortRelatedTag {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortSearchResponse {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelReelshortBook>>,
+    #[serde(rename = "keywords", default, skip_serializing_if = "Option::is_none")]
+    pub keywords: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(rename = "total_pages", default, skip_serializing_if = "Option::is_none")]
+    pub total_pages: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortShelf {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelReelshortBook>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortShelfResponse {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelReelshortBook>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTag {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "kind", default, skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagBooksResponse {
+    #[serde(rename = "books", default, skip_serializing_if = "Option::is_none")]
+    pub books: Option<Vec<ModelReelshortBook>>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "related_tags", default, skip_serializing_if = "Option::is_none")]
+    pub related_tags: Option<Vec<ModelReelshortRelatedTag>>,
+    #[serde(rename = "tag", default, skip_serializing_if = "Option::is_none")]
+    pub tag: Option<ModelReelshortTag>,
+    #[serde(rename = "top_titles", default, skip_serializing_if = "Option::is_none")]
+    pub top_titles: Option<Vec<ModelReelshortTitleRef>>,
+    #[serde(rename = "total_items", default, skip_serializing_if = "Option::is_none")]
+    pub total_items: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagMatch {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "kind", default, skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "titles", default, skip_serializing_if = "Option::is_none")]
+    pub titles: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagSearchResponse {
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "page", default, skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<ModelReelshortTagMatch>>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(rename = "word", default, skip_serializing_if = "Option::is_none")]
+    pub word: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagsResponse {
+    #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<ModelReelshortTag>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTitleRef {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortFandomCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomPostResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortFandomPostResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortFandomPostsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortFandomPostsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortHomeResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortHomeResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortMovieResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortMovieResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortNewReleasesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortNewReleasesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortShelfResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortShelfResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagBooksResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortTagBooksResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortTagSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelReelshortTagsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelReelshortTagsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -133562,6 +136852,588 @@ pub struct ModelTargetStoresResponseDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerFacet {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "url_value", default, skip_serializing_if = "Option::is_none")]
+    pub url_value: Option<String>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerFacets {
+    #[serde(rename = "card_types", default, skip_serializing_if = "Option::is_none")]
+    pub card_types: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "energy_types", default, skip_serializing_if = "Option::is_none")]
+    pub energy_types: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "product_lines", default, skip_serializing_if = "Option::is_none")]
+    pub product_lines: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "product_types", default, skip_serializing_if = "Option::is_none")]
+    pub product_types: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "rarities", default, skip_serializing_if = "Option::is_none")]
+    pub rarities: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "sets", default, skip_serializing_if = "Option::is_none")]
+    pub sets: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerFilterValue {
+    #[serde(rename = "abbreviation", default, skip_serializing_if = "Option::is_none")]
+    pub abbreviation: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerFiltersResponse {
+    #[serde(rename = "conditions", default, skip_serializing_if = "Option::is_none")]
+    pub conditions: Option<Vec<ModelTcgplayerFilterValue>>,
+    #[serde(rename = "languages", default, skip_serializing_if = "Option::is_none")]
+    pub languages: Option<Vec<ModelTcgplayerFilterValue>>,
+    #[serde(rename = "listing_types", default, skip_serializing_if = "Option::is_none")]
+    pub listing_types: Option<Vec<String>>,
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "product_line", default, skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+    #[serde(rename = "product_line_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_line_id: Option<i64>,
+    #[serde(rename = "variants", default, skip_serializing_if = "Option::is_none")]
+    pub variants: Option<Vec<ModelTcgplayerFilterValue>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerListing {
+    #[serde(rename = "condition", default, skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "direct_seller", default, skip_serializing_if = "Option::is_none")]
+    pub direct_seller: Option<bool>,
+    #[serde(rename = "gold_seller", default, skip_serializing_if = "Option::is_none")]
+    pub gold_seller: Option<bool>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "listing_id", default, skip_serializing_if = "Option::is_none")]
+    pub listing_id: Option<i64>,
+    #[serde(rename = "listing_type", default, skip_serializing_if = "Option::is_none")]
+    pub listing_type: Option<String>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(rename = "printing", default, skip_serializing_if = "Option::is_none")]
+    pub printing: Option<String>,
+    #[serde(rename = "quantity", default, skip_serializing_if = "Option::is_none")]
+    pub quantity: Option<i64>,
+    #[serde(rename = "seller_city", default, skip_serializing_if = "Option::is_none")]
+    pub seller_city: Option<String>,
+    #[serde(rename = "seller_country", default, skip_serializing_if = "Option::is_none")]
+    pub seller_country: Option<String>,
+    #[serde(rename = "seller_name", default, skip_serializing_if = "Option::is_none")]
+    pub seller_name: Option<String>,
+    #[serde(rename = "seller_rating", default, skip_serializing_if = "Option::is_none")]
+    pub seller_rating: Option<f64>,
+    #[serde(rename = "seller_sales", default, skip_serializing_if = "Option::is_none")]
+    pub seller_sales: Option<String>,
+    #[serde(rename = "seller_state", default, skip_serializing_if = "Option::is_none")]
+    pub seller_state: Option<String>,
+    #[serde(rename = "shipping_price", default, skip_serializing_if = "Option::is_none")]
+    pub shipping_price: Option<f64>,
+    #[serde(rename = "verified_seller", default, skip_serializing_if = "Option::is_none")]
+    pub verified_seller: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerListingFacets {
+    #[serde(rename = "conditions", default, skip_serializing_if = "Option::is_none")]
+    pub conditions: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "languages", default, skip_serializing_if = "Option::is_none")]
+    pub languages: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(rename = "printings", default, skip_serializing_if = "Option::is_none")]
+    pub printings: Option<Vec<ModelTcgplayerFacet>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerListingsResponse {
+    #[serde(rename = "facets", default, skip_serializing_if = "Option::is_none")]
+    pub facets: Option<ModelTcgplayerListingFacets>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "listings", default, skip_serializing_if = "Option::is_none")]
+    pub listings: Option<Vec<ModelTcgplayerListing>>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPriceBucket {
+    #[serde(rename = "high_sale_price", default, skip_serializing_if = "Option::is_none")]
+    pub high_sale_price: Option<f64>,
+    #[serde(rename = "high_sale_price_with_shipping", default, skip_serializing_if = "Option::is_none")]
+    pub high_sale_price_with_shipping: Option<f64>,
+    #[serde(rename = "low_sale_price", default, skip_serializing_if = "Option::is_none")]
+    pub low_sale_price: Option<f64>,
+    #[serde(rename = "low_sale_price_with_shipping", default, skip_serializing_if = "Option::is_none")]
+    pub low_sale_price_with_shipping: Option<f64>,
+    #[serde(rename = "market_price", default, skip_serializing_if = "Option::is_none")]
+    pub market_price: Option<f64>,
+    #[serde(rename = "quantity_sold", default, skip_serializing_if = "Option::is_none")]
+    pub quantity_sold: Option<i64>,
+    #[serde(rename = "start_date", default, skip_serializing_if = "Option::is_none")]
+    pub start_date: Option<String>,
+    #[serde(rename = "transaction_count", default, skip_serializing_if = "Option::is_none")]
+    pub transaction_count: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPriceGuideResponse {
+    #[serde(rename = "game", default, skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "rows", default, skip_serializing_if = "Option::is_none")]
+    pub rows: Option<Vec<ModelTcgplayerPriceGuideRow>>,
+    #[serde(rename = "set_abbreviation", default, skip_serializing_if = "Option::is_none")]
+    pub set_abbreviation: Option<String>,
+    #[serde(rename = "set_id", default, skip_serializing_if = "Option::is_none")]
+    pub set_id: Option<i64>,
+    #[serde(rename = "set_name", default, skip_serializing_if = "Option::is_none")]
+    pub set_name: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPriceGuideRow {
+    #[serde(rename = "condition", default, skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "low_price", default, skip_serializing_if = "Option::is_none")]
+    pub low_price: Option<f64>,
+    #[serde(rename = "market_price", default, skip_serializing_if = "Option::is_none")]
+    pub market_price: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
+    pub number: Option<String>,
+    #[serde(rename = "printing", default, skip_serializing_if = "Option::is_none")]
+    pub printing: Option<String>,
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "rarity", default, skip_serializing_if = "Option::is_none")]
+    pub rarity: Option<String>,
+    #[serde(rename = "sales", default, skip_serializing_if = "Option::is_none")]
+    pub sales: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPriceHistoryResponse {
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "range", default, skip_serializing_if = "Option::is_none")]
+    pub range: Option<String>,
+    #[serde(rename = "skus", default, skip_serializing_if = "Option::is_none")]
+    pub skus: Option<Vec<ModelTcgplayerSkuhistory>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPricePoint {
+    #[serde(rename = "buylist_market_price", default, skip_serializing_if = "Option::is_none")]
+    pub buylist_market_price: Option<f64>,
+    #[serde(rename = "listed_median_price", default, skip_serializing_if = "Option::is_none")]
+    pub listed_median_price: Option<f64>,
+    #[serde(rename = "market_price", default, skip_serializing_if = "Option::is_none")]
+    pub market_price: Option<f64>,
+    #[serde(rename = "printing", default, skip_serializing_if = "Option::is_none")]
+    pub printing: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProduct {
+    #[serde(rename = "attributes", default, skip_serializing_if = "Option::is_none")]
+    pub attributes: Option<std::collections::BTreeMap<String, String>>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "foil_only", default, skip_serializing_if = "Option::is_none")]
+    pub foil_only: Option<bool>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "lowest_price", default, skip_serializing_if = "Option::is_none")]
+    pub lowest_price: Option<f64>,
+    #[serde(rename = "lowest_price_with_shipping", default, skip_serializing_if = "Option::is_none")]
+    pub lowest_price_with_shipping: Option<f64>,
+    #[serde(rename = "market_price", default, skip_serializing_if = "Option::is_none")]
+    pub market_price: Option<f64>,
+    #[serde(rename = "median_price", default, skip_serializing_if = "Option::is_none")]
+    pub median_price: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "normal_only", default, skip_serializing_if = "Option::is_none")]
+    pub normal_only: Option<bool>,
+    #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
+    pub number: Option<String>,
+    #[serde(rename = "price_points", default, skip_serializing_if = "Option::is_none")]
+    pub price_points: Option<Vec<ModelTcgplayerPricePoint>>,
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "product_line", default, skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+    #[serde(rename = "product_line_url_name", default, skip_serializing_if = "Option::is_none")]
+    pub product_line_url_name: Option<String>,
+    #[serde(rename = "product_type", default, skip_serializing_if = "Option::is_none")]
+    pub product_type: Option<String>,
+    #[serde(rename = "rarity", default, skip_serializing_if = "Option::is_none")]
+    pub rarity: Option<String>,
+    #[serde(rename = "sealed", default, skip_serializing_if = "Option::is_none")]
+    pub sealed: Option<bool>,
+    #[serde(rename = "set_code", default, skip_serializing_if = "Option::is_none")]
+    pub set_code: Option<String>,
+    #[serde(rename = "set_name", default, skip_serializing_if = "Option::is_none")]
+    pub set_name: Option<String>,
+    #[serde(rename = "skus", default, skip_serializing_if = "Option::is_none")]
+    pub skus: Option<Vec<ModelTcgplayerSku>>,
+    #[serde(rename = "total_listings", default, skip_serializing_if = "Option::is_none")]
+    pub total_listings: Option<i64>,
+    #[serde(rename = "total_sellers", default, skip_serializing_if = "Option::is_none")]
+    pub total_sellers: Option<i64>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProductLine {
+    #[serde(rename = "direct", default, skip_serializing_if = "Option::is_none")]
+    pub direct: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "url_name", default, skip_serializing_if = "Option::is_none")]
+    pub url_name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProductLinesResponse {
+    #[serde(rename = "product_lines", default, skip_serializing_if = "Option::is_none")]
+    pub product_lines: Option<Vec<ModelTcgplayerProductLine>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProductResponse {
+    #[serde(rename = "product", default, skip_serializing_if = "Option::is_none")]
+    pub product: Option<ModelTcgplayerProduct>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProductSummary {
+    #[serde(rename = "card_types", default, skip_serializing_if = "Option::is_none")]
+    pub card_types: Option<Vec<String>>,
+    #[serde(rename = "foil_only", default, skip_serializing_if = "Option::is_none")]
+    pub foil_only: Option<bool>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "lowest_price", default, skip_serializing_if = "Option::is_none")]
+    pub lowest_price: Option<f64>,
+    #[serde(rename = "lowest_price_with_shipping", default, skip_serializing_if = "Option::is_none")]
+    pub lowest_price_with_shipping: Option<f64>,
+    #[serde(rename = "market_price", default, skip_serializing_if = "Option::is_none")]
+    pub market_price: Option<f64>,
+    #[serde(rename = "median_price", default, skip_serializing_if = "Option::is_none")]
+    pub median_price: Option<f64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "number", default, skip_serializing_if = "Option::is_none")]
+    pub number: Option<String>,
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "product_line", default, skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+    #[serde(rename = "rarity", default, skip_serializing_if = "Option::is_none")]
+    pub rarity: Option<String>,
+    #[serde(rename = "sealed", default, skip_serializing_if = "Option::is_none")]
+    pub sealed: Option<bool>,
+    #[serde(rename = "set_code", default, skip_serializing_if = "Option::is_none")]
+    pub set_code: Option<String>,
+    #[serde(rename = "set_name", default, skip_serializing_if = "Option::is_none")]
+    pub set_name: Option<String>,
+    #[serde(rename = "total_listings", default, skip_serializing_if = "Option::is_none")]
+    pub total_listings: Option<i64>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSku {
+    #[serde(rename = "condition", default, skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "sku", default, skip_serializing_if = "Option::is_none")]
+    pub sku: Option<i64>,
+    #[serde(rename = "variant", default, skip_serializing_if = "Option::is_none")]
+    pub variant: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSkuhistory {
+    #[serde(rename = "average_daily_quantity_sold", default, skip_serializing_if = "Option::is_none")]
+    pub average_daily_quantity_sold: Option<f64>,
+    #[serde(rename = "average_daily_transaction_count", default, skip_serializing_if = "Option::is_none")]
+    pub average_daily_transaction_count: Option<f64>,
+    #[serde(rename = "buckets", default, skip_serializing_if = "Option::is_none")]
+    pub buckets: Option<Vec<ModelTcgplayerPriceBucket>>,
+    #[serde(rename = "condition", default, skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "sku", default, skip_serializing_if = "Option::is_none")]
+    pub sku: Option<i64>,
+    #[serde(rename = "total_quantity_sold", default, skip_serializing_if = "Option::is_none")]
+    pub total_quantity_sold: Option<i64>,
+    #[serde(rename = "total_transaction_count", default, skip_serializing_if = "Option::is_none")]
+    pub total_transaction_count: Option<i64>,
+    #[serde(rename = "variant", default, skip_serializing_if = "Option::is_none")]
+    pub variant: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSale {
+    #[serde(rename = "condition", default, skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "listing_type", default, skip_serializing_if = "Option::is_none")]
+    pub listing_type: Option<String>,
+    #[serde(rename = "order_date", default, skip_serializing_if = "Option::is_none")]
+    pub order_date: Option<String>,
+    #[serde(rename = "purchase_price", default, skip_serializing_if = "Option::is_none")]
+    pub purchase_price: Option<f64>,
+    #[serde(rename = "quantity", default, skip_serializing_if = "Option::is_none")]
+    pub quantity: Option<i64>,
+    #[serde(rename = "shipping_price", default, skip_serializing_if = "Option::is_none")]
+    pub shipping_price: Option<f64>,
+    #[serde(rename = "variant", default, skip_serializing_if = "Option::is_none")]
+    pub variant: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSalesResponse {
+    #[serde(rename = "product_id", default, skip_serializing_if = "Option::is_none")]
+    pub product_id: Option<i64>,
+    #[serde(rename = "sales", default, skip_serializing_if = "Option::is_none")]
+    pub sales: Option<Vec<ModelTcgplayerSale>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSearchResponse {
+    #[serde(rename = "facets", default, skip_serializing_if = "Option::is_none")]
+    pub facets: Option<ModelTcgplayerFacets>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "products", default, skip_serializing_if = "Option::is_none")]
+    pub products: Option<Vec<ModelTcgplayerProductSummary>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSet {
+    #[serde(rename = "abbreviation", default, skip_serializing_if = "Option::is_none")]
+    pub abbreviation: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "release_date", default, skip_serializing_if = "Option::is_none")]
+    pub release_date: Option<String>,
+    #[serde(rename = "supplemental", default, skip_serializing_if = "Option::is_none")]
+    pub supplemental: Option<bool>,
+    #[serde(rename = "url_name", default, skip_serializing_if = "Option::is_none")]
+    pub url_name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSetsResponse {
+    #[serde(rename = "product_line", default, skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+    #[serde(rename = "sets", default, skip_serializing_if = "Option::is_none")]
+    pub sets: Option<Vec<ModelTcgplayerSet>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerFiltersResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerFiltersResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerListingsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerListingsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPriceGuideResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerPriceGuideResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerPriceHistoryResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerPriceHistoryResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProductLinesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerProductLinesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerProductResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerProductResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSalesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerSalesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTcgplayerSetsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTcgplayerSetsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelTechcrunchAuthorArticle {
     #[serde(rename = "category", default, skip_serializing_if = "Option::is_none")]
     pub category: Option<String>,
@@ -133651,6 +137523,264 @@ pub struct ModelTechstackUnmatchedEvidence {
     pub domains: Option<Vec<String>>,
     #[serde(rename = "generator", default, skip_serializing_if = "Option::is_none")]
     pub generator: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramBotResponse {
+    #[serde(rename = "avatar_url", default, skip_serializing_if = "Option::is_none")]
+    pub avatar_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "monthly_users", default, skip_serializing_if = "Option::is_none")]
+    pub monthly_users: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramChannelPostsResponse {
+    #[serde(rename = "has_more", default, skip_serializing_if = "Option::is_none")]
+    pub has_more: Option<bool>,
+    #[serde(rename = "next_before", default, skip_serializing_if = "Option::is_none")]
+    pub next_before: Option<i64>,
+    #[serde(rename = "posts", default, skip_serializing_if = "Option::is_none")]
+    pub posts: Option<Vec<ModelTelegramPost>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramChannelResponse {
+    #[serde(rename = "avatar_url", default, skip_serializing_if = "Option::is_none")]
+    pub avatar_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "files_count", default, skip_serializing_if = "Option::is_none")]
+    pub files_count: Option<i64>,
+    #[serde(rename = "links_count", default, skip_serializing_if = "Option::is_none")]
+    pub links_count: Option<i64>,
+    #[serde(rename = "photos_count", default, skip_serializing_if = "Option::is_none")]
+    pub photos_count: Option<i64>,
+    #[serde(rename = "preview_url", default, skip_serializing_if = "Option::is_none")]
+    pub preview_url: Option<String>,
+    #[serde(rename = "subscribers", default, skip_serializing_if = "Option::is_none")]
+    pub subscribers: Option<i64>,
+    #[serde(rename = "subscribers_approximate", default, skip_serializing_if = "Option::is_none")]
+    pub subscribers_approximate: Option<bool>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(rename = "videos_count", default, skip_serializing_if = "Option::is_none")]
+    pub videos_count: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramForwardedRef {
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramGroupResponse {
+    #[serde(rename = "avatar_url", default, skip_serializing_if = "Option::is_none")]
+    pub avatar_url: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "members", default, skip_serializing_if = "Option::is_none")]
+    pub members: Option<i64>,
+    #[serde(rename = "online", default, skip_serializing_if = "Option::is_none")]
+    pub online: Option<i64>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramLinkPreview {
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "image_url", default, skip_serializing_if = "Option::is_none")]
+    pub image_url: Option<String>,
+    #[serde(rename = "site_name", default, skip_serializing_if = "Option::is_none")]
+    pub site_name: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramMedia {
+    #[serde(rename = "thumbnail_url", default, skip_serializing_if = "Option::is_none")]
+    pub thumbnail_url: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramPost {
+    #[serde(rename = "author", default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<String>,
+    #[serde(rename = "edited", default, skip_serializing_if = "Option::is_none")]
+    pub edited: Option<bool>,
+    #[serde(rename = "forwarded_from", default, skip_serializing_if = "Option::is_none")]
+    pub forwarded_from: Option<ModelTelegramForwardedRef>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "link_preview", default, skip_serializing_if = "Option::is_none")]
+    pub link_preview: Option<ModelTelegramLinkPreview>,
+    #[serde(rename = "links", default, skip_serializing_if = "Option::is_none")]
+    pub links: Option<Vec<String>>,
+    #[serde(rename = "media", default, skip_serializing_if = "Option::is_none")]
+    pub media: Option<Vec<ModelTelegramMedia>>,
+    #[serde(rename = "published_at", default, skip_serializing_if = "Option::is_none")]
+    pub published_at: Option<String>,
+    #[serde(rename = "reactions", default, skip_serializing_if = "Option::is_none")]
+    pub reactions: Option<Vec<ModelTelegramReaction>>,
+    #[serde(rename = "reply_to", default, skip_serializing_if = "Option::is_none")]
+    pub reply_to: Option<ModelTelegramReplyRef>,
+    #[serde(rename = "text", default, skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "views", default, skip_serializing_if = "Option::is_none")]
+    pub views: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramPostResponse {
+    #[serde(rename = "post", default, skip_serializing_if = "Option::is_none")]
+    pub post: Option<ModelTelegramPost>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramReaction {
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "custom_emoji_id", default, skip_serializing_if = "Option::is_none")]
+    pub custom_emoji_id: Option<String>,
+    #[serde(rename = "emoji", default, skip_serializing_if = "Option::is_none")]
+    pub emoji: Option<String>,
+    #[serde(rename = "paid", default, skip_serializing_if = "Option::is_none")]
+    pub paid: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramReplyRef {
+    #[serde(rename = "author", default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "text", default, skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramBotResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTelegramBotResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramChannelPostsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTelegramChannelPostsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramChannelResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTelegramChannelResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramGroupResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTelegramGroupResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelTelegramPostResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelTelegramPostResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
     #[serde(flatten)]
     pub additional: BTreeMap<String, Value>,
 }
@@ -146968,6 +151098,394 @@ pub struct ModelWalgreensStoresResponseDoc {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelWallapopCategory>>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "max_depth", default, skip_serializing_if = "Option::is_none")]
+    pub max_depth: Option<i64>,
+    #[serde(rename = "root_count", default, skip_serializing_if = "Option::is_none")]
+    pub root_count: Option<i64>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopCategory {
+    #[serde(rename = "depth", default, skip_serializing_if = "Option::is_none")]
+    pub depth: Option<i64>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "is_leaf", default, skip_serializing_if = "Option::is_none")]
+    pub is_leaf: Option<bool>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "parent_id", default, skip_serializing_if = "Option::is_none")]
+    pub parent_id: Option<i64>,
+    #[serde(rename = "path", default, skip_serializing_if = "Option::is_none")]
+    pub path: Option<String>,
+    #[serde(rename = "root_id", default, skip_serializing_if = "Option::is_none")]
+    pub root_id: Option<i64>,
+    #[serde(rename = "vertical_id", default, skip_serializing_if = "Option::is_none")]
+    pub vertical_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFilterDefinition {
+    #[serde(rename = "format", default, skip_serializing_if = "Option::is_none")]
+    pub format: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "is_search_enabled", default, skip_serializing_if = "Option::is_none")]
+    pub is_search_enabled: Option<bool>,
+    #[serde(rename = "label", default, skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+    #[serde(rename = "options", default, skip_serializing_if = "Option::is_none")]
+    pub options: Option<Vec<ModelWallapopFilterOption>>,
+    #[serde(rename = "options_endpoint", default, skip_serializing_if = "Option::is_none")]
+    pub options_endpoint: Option<String>,
+    #[serde(rename = "reload_when_changed", default, skip_serializing_if = "Option::is_none")]
+    pub reload_when_changed: Option<bool>,
+    #[serde(rename = "search_params", default, skip_serializing_if = "Option::is_none")]
+    pub search_params: Option<std::collections::BTreeMap<String, ModelWallapopFilterParamBinding>>,
+    #[serde(rename = "selection", default, skip_serializing_if = "Option::is_none")]
+    pub selection: Option<String>,
+    #[serde(rename = "source", default, skip_serializing_if = "Option::is_none")]
+    pub source: Option<String>,
+    #[serde(rename = "steps", default, skip_serializing_if = "Option::is_none")]
+    pub steps: Option<Vec<ModelWallapopFilterRangeStep>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "type", default, skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+    #[serde(rename = "unit", default, skip_serializing_if = "Option::is_none")]
+    pub unit: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFilterOption {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFilterOptionsResponse {
+    #[serde(rename = "brand", default, skip_serializing_if = "Option::is_none")]
+    pub brand: Option<String>,
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "filter_id", default, skip_serializing_if = "Option::is_none")]
+    pub filter_id: Option<String>,
+    #[serde(rename = "next_cursor", default, skip_serializing_if = "Option::is_none")]
+    pub next_cursor: Option<String>,
+    #[serde(rename = "options", default, skip_serializing_if = "Option::is_none")]
+    pub options: Option<Vec<ModelWallapopFilterOption>>,
+    #[serde(rename = "options_query", default, skip_serializing_if = "Option::is_none")]
+    pub options_query: Option<String>,
+    #[serde(rename = "page_size", default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+    #[serde(rename = "q", default, skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFilterParamBinding {
+    #[serde(rename = "param_key", default, skip_serializing_if = "Option::is_none")]
+    pub param_key: Option<String>,
+    #[serde(rename = "param_value", default, skip_serializing_if = "Option::is_none")]
+    pub param_value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFilterRangeStep {
+    #[serde(rename = "end", default, skip_serializing_if = "Option::is_none")]
+    pub end: Option<f64>,
+    #[serde(rename = "increment", default, skip_serializing_if = "Option::is_none")]
+    pub increment: Option<f64>,
+    #[serde(rename = "start", default, skip_serializing_if = "Option::is_none")]
+    pub start: Option<f64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFiltersResponse {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "filters", default, skip_serializing_if = "Option::is_none")]
+    pub filters: Option<Vec<ModelWallapopFilterDefinition>>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "root_category_id", default, skip_serializing_if = "Option::is_none")]
+    pub root_category_id: Option<i64>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopItemDetailAttribute {
+    #[serde(rename = "key", default, skip_serializing_if = "Option::is_none")]
+    pub key: Option<String>,
+    #[serde(rename = "text", default, skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopItemDetailCharacteristic {
+    #[serde(rename = "attribute", default, skip_serializing_if = "Option::is_none")]
+    pub attribute: Option<String>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopItemDetailCondition {
+    #[serde(rename = "text", default, skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "value", default, skip_serializing_if = "Option::is_none")]
+    pub value: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopItemDetailRelatedSearch {
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopItemDetailResponse {
+    #[serde(rename = "attributes", default, skip_serializing_if = "Option::is_none")]
+    pub attributes: Option<Vec<ModelWallapopItemDetailAttribute>>,
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "characteristics", default, skip_serializing_if = "Option::is_none")]
+    pub characteristics: Option<Vec<ModelWallapopItemDetailCharacteristic>>,
+    #[serde(rename = "condition", default, skip_serializing_if = "Option::is_none")]
+    pub condition: Option<ModelWallapopItemDetailCondition>,
+    #[serde(rename = "currency", default, skip_serializing_if = "Option::is_none")]
+    pub currency: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "hashtags", default, skip_serializing_if = "Option::is_none")]
+    pub hashtags: Option<Vec<String>>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "images", default, skip_serializing_if = "Option::is_none")]
+    pub images: Option<Vec<String>>,
+    #[serde(rename = "location", default, skip_serializing_if = "Option::is_none")]
+    pub location: Option<ModelWallapopListingLocation>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(rename = "related_searches", default, skip_serializing_if = "Option::is_none")]
+    pub related_searches: Option<Vec<ModelWallapopItemDetailRelatedSearch>>,
+    #[serde(rename = "shipping", default, skip_serializing_if = "Option::is_none")]
+    pub shipping: Option<ModelWallapopListingShipping>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "taxonomy", default, skip_serializing_if = "Option::is_none")]
+    pub taxonomy: Option<Vec<ModelWallapopListingTaxonomy>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopListingCard {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "currency", default, skip_serializing_if = "Option::is_none")]
+    pub currency: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "images", default, skip_serializing_if = "Option::is_none")]
+    pub images: Option<Vec<String>>,
+    #[serde(rename = "location", default, skip_serializing_if = "Option::is_none")]
+    pub location: Option<ModelWallapopListingLocation>,
+    #[serde(rename = "price", default, skip_serializing_if = "Option::is_none")]
+    pub price: Option<f64>,
+    #[serde(rename = "shipping", default, skip_serializing_if = "Option::is_none")]
+    pub shipping: Option<ModelWallapopListingShipping>,
+    #[serde(rename = "slug", default, skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "taxonomy", default, skip_serializing_if = "Option::is_none")]
+    pub taxonomy: Option<Vec<ModelWallapopListingTaxonomy>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopListingLocation {
+    #[serde(rename = "city", default, skip_serializing_if = "Option::is_none")]
+    pub city: Option<String>,
+    #[serde(rename = "country_code", default, skip_serializing_if = "Option::is_none")]
+    pub country_code: Option<String>,
+    #[serde(rename = "region", default, skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "region2", default, skip_serializing_if = "Option::is_none")]
+    pub region2: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopListingShipping {
+    #[serde(rename = "item_is_shippable", default, skip_serializing_if = "Option::is_none")]
+    pub item_is_shippable: Option<bool>,
+    #[serde(rename = "user_allows_shipping", default, skip_serializing_if = "Option::is_none")]
+    pub user_allows_shipping: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopListingTaxonomy {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopSearchResponse {
+    #[serde(rename = "category_id", default, skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "count", default, skip_serializing_if = "Option::is_none")]
+    pub count: Option<i64>,
+    #[serde(rename = "country_code", default, skip_serializing_if = "Option::is_none")]
+    pub country_code: Option<String>,
+    #[serde(rename = "fetched_at", default, skip_serializing_if = "Option::is_none")]
+    pub fetched_at: Option<String>,
+    #[serde(rename = "items", default, skip_serializing_if = "Option::is_none")]
+    pub items: Option<Vec<ModelWallapopListingCard>>,
+    #[serde(rename = "next_cursor", default, skip_serializing_if = "Option::is_none")]
+    pub next_cursor: Option<String>,
+    #[serde(rename = "query", default, skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "sort", default, skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "source_url", default, skip_serializing_if = "Option::is_none")]
+    pub source_url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWallapopCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFilterOptionsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWallapopFilterOptionsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopFiltersResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWallapopFiltersResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopItemDetailResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWallapopItemDetailResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWallapopSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWallapopSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ModelWalmartProduct {
     #[serde(rename = "attributes", default, skip_serializing_if = "Option::is_none")]
     pub attributes: Option<std::collections::BTreeMap<String, String>>,
@@ -147353,6 +151871,538 @@ pub struct ModelWapoSectionsResponseDoc {
     pub code: Option<i64>,
     #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
     pub data: Option<ModelWapoSectionsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadAuthor {
+    #[serde(rename = "avatar", default, skip_serializing_if = "Option::is_none")]
+    pub avatar: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadCategoriesResponse {
+    #[serde(rename = "categories", default, skip_serializing_if = "Option::is_none")]
+    pub categories: Option<Vec<ModelWattpadCategory>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadCategory {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "name_english", default, skip_serializing_if = "Option::is_none")]
+    pub name_english: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadComment {
+    #[serde(rename = "author", default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<String>,
+    #[serde(rename = "author_avatar", default, skip_serializing_if = "Option::is_none")]
+    pub author_avatar: Option<String>,
+    #[serde(rename = "body", default, skip_serializing_if = "Option::is_none")]
+    pub body: Option<String>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "is_reply", default, skip_serializing_if = "Option::is_none")]
+    pub is_reply: Option<bool>,
+    #[serde(rename = "parent_id", default, skip_serializing_if = "Option::is_none")]
+    pub parent_id: Option<String>,
+    #[serde(rename = "replies", default, skip_serializing_if = "Option::is_none")]
+    pub replies: Option<i64>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadLanguage {
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadLanguagesResponse {
+    #[serde(rename = "languages", default, skip_serializing_if = "Option::is_none")]
+    pub languages: Option<Vec<ModelWattpadLanguage>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadPart {
+    #[serde(rename = "comments", default, skip_serializing_if = "Option::is_none")]
+    pub comments: Option<i64>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "draft", default, skip_serializing_if = "Option::is_none")]
+    pub draft: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "length", default, skip_serializing_if = "Option::is_none")]
+    pub length: Option<i64>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "reads", default, skip_serializing_if = "Option::is_none")]
+    pub reads: Option<i64>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "votes", default, skip_serializing_if = "Option::is_none")]
+    pub votes: Option<i64>,
+    #[serde(rename = "word_count", default, skip_serializing_if = "Option::is_none")]
+    pub word_count: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadPartCommentsResponse {
+    #[serde(rename = "comments", default, skip_serializing_if = "Option::is_none")]
+    pub comments: Option<Vec<ModelWattpadComment>>,
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "part_id", default, skip_serializing_if = "Option::is_none")]
+    pub part_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadPartDetail {
+    #[serde(rename = "comments", default, skip_serializing_if = "Option::is_none")]
+    pub comments: Option<i64>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "draft", default, skip_serializing_if = "Option::is_none")]
+    pub draft: Option<bool>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "length", default, skip_serializing_if = "Option::is_none")]
+    pub length: Option<i64>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "reads", default, skip_serializing_if = "Option::is_none")]
+    pub reads: Option<i64>,
+    #[serde(rename = "story_id", default, skip_serializing_if = "Option::is_none")]
+    pub story_id: Option<String>,
+    #[serde(rename = "story_title", default, skip_serializing_if = "Option::is_none")]
+    pub story_title: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "votes", default, skip_serializing_if = "Option::is_none")]
+    pub votes: Option<i64>,
+    #[serde(rename = "word_count", default, skip_serializing_if = "Option::is_none")]
+    pub word_count: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadPartResponse {
+    #[serde(rename = "part", default, skip_serializing_if = "Option::is_none")]
+    pub part: Option<ModelWattpadPartDetail>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadRecommendationsResponse {
+    #[serde(rename = "stories", default, skip_serializing_if = "Option::is_none")]
+    pub stories: Option<Vec<ModelWattpadStory>>,
+    #[serde(rename = "story_id", default, skip_serializing_if = "Option::is_none")]
+    pub story_id: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadSearchResponse {
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "stories", default, skip_serializing_if = "Option::is_none")]
+    pub stories: Option<Vec<ModelWattpadStory>>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadSearchUsersResponse {
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "users", default, skip_serializing_if = "Option::is_none")]
+    pub users: Option<Vec<ModelWattpadUserSummary>>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadStory {
+    #[serde(rename = "author", default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<ModelWattpadAuthor>,
+    #[serde(rename = "category_ids", default, skip_serializing_if = "Option::is_none")]
+    pub category_ids: Option<Vec<i64>>,
+    #[serde(rename = "comments", default, skip_serializing_if = "Option::is_none")]
+    pub comments: Option<i64>,
+    #[serde(rename = "completed", default, skip_serializing_if = "Option::is_none")]
+    pub completed: Option<bool>,
+    #[serde(rename = "cover", default, skip_serializing_if = "Option::is_none")]
+    pub cover: Option<String>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<ModelWattpadLanguage>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "parts", default, skip_serializing_if = "Option::is_none")]
+    pub parts: Option<i64>,
+    #[serde(rename = "reads", default, skip_serializing_if = "Option::is_none")]
+    pub reads: Option<i64>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "votes", default, skip_serializing_if = "Option::is_none")]
+    pub votes: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadStoryDetail {
+    #[serde(rename = "author", default, skip_serializing_if = "Option::is_none")]
+    pub author: Option<ModelWattpadAuthor>,
+    #[serde(rename = "category_ids", default, skip_serializing_if = "Option::is_none")]
+    pub category_ids: Option<Vec<i64>>,
+    #[serde(rename = "comments", default, skip_serializing_if = "Option::is_none")]
+    pub comments: Option<i64>,
+    #[serde(rename = "completed", default, skip_serializing_if = "Option::is_none")]
+    pub completed: Option<bool>,
+    #[serde(rename = "copyright", default, skip_serializing_if = "Option::is_none")]
+    pub copyright: Option<i64>,
+    #[serde(rename = "cover", default, skip_serializing_if = "Option::is_none")]
+    pub cover: Option<String>,
+    #[serde(rename = "created_at", default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "first_part_id", default, skip_serializing_if = "Option::is_none")]
+    pub first_part_id: Option<String>,
+    #[serde(rename = "id", default, skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "language", default, skip_serializing_if = "Option::is_none")]
+    pub language: Option<ModelWattpadLanguage>,
+    #[serde(rename = "last_published_at", default, skip_serializing_if = "Option::is_none")]
+    pub last_published_at: Option<String>,
+    #[serde(rename = "mature", default, skip_serializing_if = "Option::is_none")]
+    pub mature: Option<bool>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "paid_model", default, skip_serializing_if = "Option::is_none")]
+    pub paid_model: Option<String>,
+    #[serde(rename = "parts", default, skip_serializing_if = "Option::is_none")]
+    pub parts: Option<i64>,
+    #[serde(rename = "paywalled", default, skip_serializing_if = "Option::is_none")]
+    pub paywalled: Option<bool>,
+    #[serde(rename = "rating", default, skip_serializing_if = "Option::is_none")]
+    pub rating: Option<i64>,
+    #[serde(rename = "reads", default, skip_serializing_if = "Option::is_none")]
+    pub reads: Option<i64>,
+    #[serde(rename = "tags", default, skip_serializing_if = "Option::is_none")]
+    pub tags: Option<Vec<String>>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "votes", default, skip_serializing_if = "Option::is_none")]
+    pub votes: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadStoryPartsResponse {
+    #[serde(rename = "parts", default, skip_serializing_if = "Option::is_none")]
+    pub parts: Option<Vec<ModelWattpadPart>>,
+    #[serde(rename = "story_id", default, skip_serializing_if = "Option::is_none")]
+    pub story_id: Option<String>,
+    #[serde(rename = "title", default, skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadStoryResponse {
+    #[serde(rename = "story", default, skip_serializing_if = "Option::is_none")]
+    pub story: Option<ModelWattpadStoryDetail>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadUserProfile {
+    #[serde(rename = "ambassador", default, skip_serializing_if = "Option::is_none")]
+    pub ambassador: Option<bool>,
+    #[serde(rename = "avatar", default, skip_serializing_if = "Option::is_none")]
+    pub avatar: Option<String>,
+    #[serde(rename = "background", default, skip_serializing_if = "Option::is_none")]
+    pub background: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "followers", default, skip_serializing_if = "Option::is_none")]
+    pub followers: Option<i64>,
+    #[serde(rename = "following", default, skip_serializing_if = "Option::is_none")]
+    pub following: Option<i64>,
+    #[serde(rename = "joined_at", default, skip_serializing_if = "Option::is_none")]
+    pub joined_at: Option<String>,
+    #[serde(rename = "lists", default, skip_serializing_if = "Option::is_none")]
+    pub lists: Option<i64>,
+    #[serde(rename = "location", default, skip_serializing_if = "Option::is_none")]
+    pub location: Option<String>,
+    #[serde(rename = "modified_at", default, skip_serializing_if = "Option::is_none")]
+    pub modified_at: Option<String>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "stories_published", default, skip_serializing_if = "Option::is_none")]
+    pub stories_published: Option<i64>,
+    #[serde(rename = "url", default, skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(rename = "votes_received", default, skip_serializing_if = "Option::is_none")]
+    pub votes_received: Option<i64>,
+    #[serde(rename = "website", default, skip_serializing_if = "Option::is_none")]
+    pub website: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadUserResponse {
+    #[serde(rename = "user", default, skip_serializing_if = "Option::is_none")]
+    pub user: Option<ModelWattpadUserProfile>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadUserStoriesResponse {
+    #[serde(rename = "limit", default, skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "next_offset", default, skip_serializing_if = "Option::is_none")]
+    pub next_offset: Option<i64>,
+    #[serde(rename = "offset", default, skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "stories", default, skip_serializing_if = "Option::is_none")]
+    pub stories: Option<Vec<ModelWattpadStory>>,
+    #[serde(rename = "total", default, skip_serializing_if = "Option::is_none")]
+    pub total: Option<i64>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadUserSummary {
+    #[serde(rename = "avatar", default, skip_serializing_if = "Option::is_none")]
+    pub avatar: Option<String>,
+    #[serde(rename = "description", default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "followers", default, skip_serializing_if = "Option::is_none")]
+    pub followers: Option<i64>,
+    #[serde(rename = "name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+    #[serde(rename = "stories_published", default, skip_serializing_if = "Option::is_none")]
+    pub stories_published: Option<i64>,
+    #[serde(rename = "username", default, skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "verified", default, skip_serializing_if = "Option::is_none")]
+    pub verified: Option<bool>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadCategoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadCategoriesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadLanguagesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadLanguagesResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadPartCommentsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadPartCommentsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadPartResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadPartResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadRecommendationsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadRecommendationsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadSearchResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadSearchResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadSearchUsersResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadSearchUsersResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadStoryPartsResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadStoryPartsResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadStoryResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadStoryResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadUserResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadUserResponse>,
+    #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
+    pub msg: Option<String>,
+    #[serde(flatten)]
+    pub additional: BTreeMap<String, Value>,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+pub struct ModelWattpadUserStoriesResponseDoc {
+    #[serde(rename = "code", default, skip_serializing_if = "Option::is_none")]
+    pub code: Option<i64>,
+    #[serde(rename = "data", default, skip_serializing_if = "Option::is_none")]
+    pub data: Option<ModelWattpadUserStoriesResponse>,
     #[serde(rename = "msg", default, skip_serializing_if = "Option::is_none")]
     pub msg: Option<String>,
     #[serde(flatten)]

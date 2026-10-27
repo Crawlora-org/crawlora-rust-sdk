@@ -120,6 +120,7 @@ pub struct Services {
     pub draft_kings_predictions: DraftKingsPredictionsApi,
     pub draft_kings_racing: DraftKingsRacingApi,
     pub draft_kings_sportsbook: DraftKingsSportsbookApi,
+    pub drama_box: DramaBoxApi,
     pub duck_duck_go_search: DuckDuckGoSearchApi,
     pub dunkin: DunkinApi,
     pub dw: DwApi,
@@ -224,6 +225,7 @@ pub struct Services {
     pub kalshi: KalshiApi,
     pub kfc: KfcApi,
     pub khaleej_times: KhaleejTimesApi,
+    pub kick: KickApi,
     pub kickstarter: KickstarterApi,
     pub kohl_s: KohlSApi,
     pub kotaku: KotakuApi,
@@ -315,6 +317,7 @@ pub struct Services {
     pub popular_mechanics: PopularMechanicsApi,
     pub poshmark: PoshmarkApi,
     pub prada: PradaApi,
+    pub price_charting: PriceChartingApi,
     pub pristine_auction: PristineAuctionApi,
     pub pristine_marketplace: PristineMarketplaceApi,
     pub product_hunt: ProductHuntApi,
@@ -330,6 +333,7 @@ pub struct Services {
     pub rebag: RebagApi,
     pub reddit: RedditApi,
     pub redfin: RedfinApi,
+    pub reel_short: ReelShortApi,
     pub referrals: ReferralsApi,
     pub research_jobs: ResearchJobsApi,
     pub research: ResearchApi,
@@ -396,8 +400,10 @@ pub struct Services {
     pub swiggy: SwiggyApi,
     pub taco_bell: TacoBellApi,
     pub target: TargetApi,
+    pub tcgplayer: TcgplayerApi,
     pub tech_crunch: TechCrunchApi,
     pub tech_radar: TechRadarApi,
+    pub telegram: TelegramApi,
     pub the_telegraph: TheTelegraphApi,
     pub tes: TesApi,
     pub tesla_jobs: TeslaJobsApi,
@@ -454,8 +460,10 @@ pub struct Services {
     pub vrbo: VrboApi,
     pub wales_online: WalesOnlineApi,
     pub walgreens: WalgreensApi,
+    pub wallapop: WallapopApi,
     pub walmart: WalmartApi,
     pub washington_post: WashingtonPostApi,
+    pub wattpad: WattpadApi,
     pub wayfair: WayfairApi,
     pub wccftech: WccftechApi,
     pub wendys: WendysApi,
@@ -610,6 +618,7 @@ impl Services {
             draft_kings_predictions: DraftKingsPredictionsApi { inner: Arc::clone(&inner) },
             draft_kings_racing: DraftKingsRacingApi { inner: Arc::clone(&inner) },
             draft_kings_sportsbook: DraftKingsSportsbookApi { inner: Arc::clone(&inner) },
+            drama_box: DramaBoxApi { inner: Arc::clone(&inner) },
             duck_duck_go_search: DuckDuckGoSearchApi { inner: Arc::clone(&inner) },
             dunkin: DunkinApi { inner: Arc::clone(&inner) },
             dw: DwApi { inner: Arc::clone(&inner) },
@@ -714,6 +723,7 @@ impl Services {
             kalshi: KalshiApi { inner: Arc::clone(&inner) },
             kfc: KfcApi { inner: Arc::clone(&inner) },
             khaleej_times: KhaleejTimesApi { inner: Arc::clone(&inner) },
+            kick: KickApi { inner: Arc::clone(&inner) },
             kickstarter: KickstarterApi { inner: Arc::clone(&inner) },
             kohl_s: KohlSApi { inner: Arc::clone(&inner) },
             kotaku: KotakuApi { inner: Arc::clone(&inner) },
@@ -805,6 +815,7 @@ impl Services {
             popular_mechanics: PopularMechanicsApi { inner: Arc::clone(&inner) },
             poshmark: PoshmarkApi { inner: Arc::clone(&inner) },
             prada: PradaApi { inner: Arc::clone(&inner) },
+            price_charting: PriceChartingApi { inner: Arc::clone(&inner) },
             pristine_auction: PristineAuctionApi { inner: Arc::clone(&inner) },
             pristine_marketplace: PristineMarketplaceApi { inner: Arc::clone(&inner) },
             product_hunt: ProductHuntApi { inner: Arc::clone(&inner) },
@@ -820,6 +831,7 @@ impl Services {
             rebag: RebagApi { inner: Arc::clone(&inner) },
             reddit: RedditApi { inner: Arc::clone(&inner) },
             redfin: RedfinApi { inner: Arc::clone(&inner) },
+            reel_short: ReelShortApi { inner: Arc::clone(&inner) },
             referrals: ReferralsApi { inner: Arc::clone(&inner) },
             research_jobs: ResearchJobsApi { inner: Arc::clone(&inner) },
             research: ResearchApi { inner: Arc::clone(&inner) },
@@ -886,8 +898,10 @@ impl Services {
             swiggy: SwiggyApi { inner: Arc::clone(&inner) },
             taco_bell: TacoBellApi { inner: Arc::clone(&inner) },
             target: TargetApi { inner: Arc::clone(&inner) },
+            tcgplayer: TcgplayerApi { inner: Arc::clone(&inner) },
             tech_crunch: TechCrunchApi { inner: Arc::clone(&inner) },
             tech_radar: TechRadarApi { inner: Arc::clone(&inner) },
+            telegram: TelegramApi { inner: Arc::clone(&inner) },
             the_telegraph: TheTelegraphApi { inner: Arc::clone(&inner) },
             tes: TesApi { inner: Arc::clone(&inner) },
             tesla_jobs: TeslaJobsApi { inner: Arc::clone(&inner) },
@@ -944,8 +958,10 @@ impl Services {
             vrbo: VrboApi { inner: Arc::clone(&inner) },
             wales_online: WalesOnlineApi { inner: Arc::clone(&inner) },
             walgreens: WalgreensApi { inner: Arc::clone(&inner) },
+            wallapop: WallapopApi { inner: Arc::clone(&inner) },
             walmart: WalmartApi { inner: Arc::clone(&inner) },
             washington_post: WashingtonPostApi { inner: Arc::clone(&inner) },
+            wattpad: WattpadApi { inner: Arc::clone(&inner) },
             wayfair: WayfairApi { inner: Arc::clone(&inner) },
             wccftech: WccftechApi { inner: Arc::clone(&inner) },
             wendys: WendysApi { inner: Arc::clone(&inner) },
@@ -1550,6 +1566,32 @@ pub struct AlComAlcomSectionsParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct AliExpressAliexpressCategoriesParams {
+    #[serde(rename = "category_tab", skip_serializing_if = "Option::is_none")]
+    pub category_tab: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct AliExpressAliexpressCategoryIdsParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "category_id", skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct AliExpressAliexpressCategoryProductsParams {
+    #[serde(rename = "category_id", skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct AliExpressAliexpressReviewsParams {
     #[serde(rename = "product_id", skip_serializing_if = "Option::is_none")]
     pub product_id: Option<String>,
@@ -1575,12 +1617,28 @@ pub struct AliExpressAliexpressSearchParams {
     pub choice: Option<bool>,
     #[serde(rename = "attr", skip_serializing_if = "Option::is_none")]
     pub attr: Option<String>,
+    #[serde(rename = "cat_id", skip_serializing_if = "Option::is_none")]
+    pub cat_id: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct AliExpressAliexpressSearchFiltersParams {
     #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
     pub q: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct AliExpressAliexpressSuggestParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct AliExpressAliexpressTrendingSearchesParams {
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -6690,6 +6748,100 @@ pub struct DatasetsAirbnbMarketsSearchParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DatasetsAppleMapsPlacesFacetsParams {
+    #[serde(rename = "facet", skip_serializing_if = "Option::is_none")]
+    pub facet: Option<String>,
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "city", skip_serializing_if = "Option::is_none")]
+    pub city: Option<String>,
+    #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
+    pub state: Option<String>,
+    #[serde(rename = "country_code", skip_serializing_if = "Option::is_none")]
+    pub country_code: Option<String>,
+    #[serde(rename = "postal_code", skip_serializing_if = "Option::is_none")]
+    pub postal_code: Option<String>,
+    #[serde(rename = "min_rating", skip_serializing_if = "Option::is_none")]
+    pub min_rating: Option<f64>,
+    #[serde(rename = "min_rating_count", skip_serializing_if = "Option::is_none")]
+    pub min_rating_count: Option<i64>,
+    #[serde(rename = "has_website", skip_serializing_if = "Option::is_none")]
+    pub has_website: Option<bool>,
+    #[serde(rename = "has_phone", skip_serializing_if = "Option::is_none")]
+    pub has_phone: Option<bool>,
+    #[serde(rename = "lat", skip_serializing_if = "Option::is_none")]
+    pub lat: Option<f64>,
+    #[serde(rename = "lon", skip_serializing_if = "Option::is_none")]
+    pub lon: Option<f64>,
+    #[serde(rename = "radius_m", skip_serializing_if = "Option::is_none")]
+    pub radius_m: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DatasetsAppleMapsPlacesItemParams {
+    #[serde(rename = "place_id", skip_serializing_if = "Option::is_none")]
+    pub place_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DatasetsAppleMapsPlacesNearbyParams {
+    #[serde(rename = "lat", skip_serializing_if = "Option::is_none")]
+    pub lat: Option<f64>,
+    #[serde(rename = "lon", skip_serializing_if = "Option::is_none")]
+    pub lon: Option<f64>,
+    #[serde(rename = "radius_m", skip_serializing_if = "Option::is_none")]
+    pub radius_m: Option<i64>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "min_rating", skip_serializing_if = "Option::is_none")]
+    pub min_rating: Option<f64>,
+    #[serde(rename = "min_rating_count", skip_serializing_if = "Option::is_none")]
+    pub min_rating_count: Option<i64>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DatasetsAppleMapsPlacesSearchParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "city", skip_serializing_if = "Option::is_none")]
+    pub city: Option<String>,
+    #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
+    pub state: Option<String>,
+    #[serde(rename = "country_code", skip_serializing_if = "Option::is_none")]
+    pub country_code: Option<String>,
+    #[serde(rename = "postal_code", skip_serializing_if = "Option::is_none")]
+    pub postal_code: Option<String>,
+    #[serde(rename = "min_rating", skip_serializing_if = "Option::is_none")]
+    pub min_rating: Option<f64>,
+    #[serde(rename = "min_rating_count", skip_serializing_if = "Option::is_none")]
+    pub min_rating_count: Option<i64>,
+    #[serde(rename = "has_website", skip_serializing_if = "Option::is_none")]
+    pub has_website: Option<bool>,
+    #[serde(rename = "has_phone", skip_serializing_if = "Option::is_none")]
+    pub has_phone: Option<bool>,
+    #[serde(rename = "lat", skip_serializing_if = "Option::is_none")]
+    pub lat: Option<f64>,
+    #[serde(rename = "lon", skip_serializing_if = "Option::is_none")]
+    pub lon: Option<f64>,
+    #[serde(rename = "radius_m", skip_serializing_if = "Option::is_none")]
+    pub radius_m: Option<i64>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct DatasetsApplePodcastsShowsFacetsParams {
     #[serde(rename = "facet", skip_serializing_if = "Option::is_none")]
     pub facet: Option<String>,
@@ -10537,6 +10689,142 @@ pub struct DraftKingsSportsbookDraftkingsTeamParams {
 pub struct DraftKingsSportsbookDraftkingsTeamsParams {
     #[serde(rename = "league", skip_serializing_if = "Option::is_none")]
     pub league: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxBrowseParams {
+    #[serde(rename = "genre_id", skip_serializing_if = "Option::is_none")]
+    pub genre_id: Option<i64>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxCategoryBooksParams {
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "production", skip_serializing_if = "Option::is_none")]
+    pub production: Option<String>,
+    #[serde(rename = "dub", skip_serializing_if = "Option::is_none")]
+    pub dub: Option<String>,
+    #[serde(rename = "genre", skip_serializing_if = "Option::is_none")]
+    pub genre: Option<String>,
+    #[serde(rename = "genre_2", skip_serializing_if = "Option::is_none")]
+    pub genre_2: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxChannelsParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxDramaParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxGenresParams {
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxHomeParams {
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxMoreParams {
+    #[serde(rename = "position", skip_serializing_if = "Option::is_none")]
+    pub position: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxPerformerParams {
+    #[serde(rename = "performer_id", skip_serializing_if = "Option::is_none")]
+    pub performer_id: Option<i64>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxRankParams {
+    #[serde(rename = "rank_type", skip_serializing_if = "Option::is_none")]
+    pub rank_type: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxRecommendParams {
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxSearchParams {
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxSuggestParams {
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxTagParams {
+    #[serde(rename = "tag_id", skip_serializing_if = "Option::is_none")]
+    pub tag_id: Option<i64>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxTheaterParams {
+    #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
+    pub channel: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct DramaBoxDramaboxTrendingParams {
+    #[serde(skip)]
+    _empty: Option<()>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -18190,6 +18478,16 @@ pub struct JumiaProductParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct JumiaReviewsParams {
+    #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "sku", skip_serializing_if = "Option::is_none")]
+    pub sku: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct JumiaSearchParams {
     #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
@@ -18197,6 +18495,26 @@ pub struct JumiaSearchParams {
     pub q: Option<String>,
     #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
     pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct JumiaSitemapUrlsParams {
+    #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "sitemap", skip_serializing_if = "Option::is_none")]
+    pub sitemap: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct JumiaSitemapsParams {
+    #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
+    pub country: Option<String>,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -18795,6 +19113,158 @@ pub struct KhaleejTimesKhaleejtimesNewsParams {
 pub struct KhaleejTimesKhaleejtimesSectionsParams {
     #[serde(skip)]
     _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickCategoryClipsParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelChatroomParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelClipsParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelEmotesParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelLinksParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelStreamsParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickChannelVideosParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickClipParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickClipsParams {
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "time", skip_serializing_if = "Option::is_none")]
+    pub time: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickDropsParams {
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickGiftsParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickLanguagesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickLivestreamsParams {
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "category_id", skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "after", skip_serializing_if = "Option::is_none")]
+    pub after: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickSearchCategoriesParams {
+    #[serde(rename = "query", skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickSearchChannelsParams {
+    #[serde(rename = "query", skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "live", skip_serializing_if = "Option::is_none")]
+    pub live: Option<bool>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickSubcategoriesParams {
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickSubcategoryParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickTopChannelsParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct KickVideoParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -25362,6 +25832,68 @@ pub struct PradaSuggestParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PriceChartingPricechartingBigMoversParams {
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PriceChartingPricechartingCategoriesParams {
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PriceChartingPricechartingConsoleParams {
+    #[serde(rename = "console", skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PriceChartingPricechartingPriceHistoryParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "console", skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PriceChartingPricechartingProductParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "console", skip_serializing_if = "Option::is_none")]
+    pub console: Option<String>,
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PriceChartingPricechartingSearchParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "console_uid", skip_serializing_if = "Option::is_none")]
+    pub console_uid: Option<String>,
+    #[serde(rename = "exclude_variants", skip_serializing_if = "Option::is_none")]
+    pub exclude_variants: Option<bool>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct PristineAuctionCategoriesParams {
     #[serde(skip)]
     _empty: Option<()>,
@@ -25723,6 +26255,18 @@ pub struct PsaPriceGuideSetParams {
     pub set_path: Option<String>,
     #[serde(rename = "set_id", skip_serializing_if = "Option::is_none")]
     pub set_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct PsaPriceGuideSetsParams {
+    #[serde(rename = "query", skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "category_path", skip_serializing_if = "Option::is_none")]
+    pub category_path: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -26485,6 +27029,96 @@ pub struct RedfinSearchParams {
 pub struct RedfinSimilarParams {
     #[serde(rename = "property_id", skip_serializing_if = "Option::is_none")]
     pub property_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortFandomCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortFandomPostParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortFandomPostsParams {
+    #[serde(rename = "search", skip_serializing_if = "Option::is_none")]
+    pub search: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortHomeParams {
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortMovieParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortNewReleasesParams {
+    #[serde(rename = "book_id", skip_serializing_if = "Option::is_none")]
+    pub book_id: Option<String>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortSearchParams {
+    #[serde(rename = "keywords", skip_serializing_if = "Option::is_none")]
+    pub keywords: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortShelfParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortTagBooksParams {
+    #[serde(rename = "tag_id", skip_serializing_if = "Option::is_none")]
+    pub tag_id: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortTagSearchParams {
+    #[serde(rename = "word", skip_serializing_if = "Option::is_none")]
+    pub word: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ReelShortReelshortTagsParams {
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -32128,6 +32762,112 @@ pub struct TargetStoresParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerFiltersParams {
+    #[serde(rename = "product_line", skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerListingsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "printing", skip_serializing_if = "Option::is_none")]
+    pub printing: Option<String>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
+    pub order: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerPriceGuideParams {
+    #[serde(rename = "set_id", skip_serializing_if = "Option::is_none")]
+    pub set_id: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerPriceHistoryParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "range", skip_serializing_if = "Option::is_none")]
+    pub range: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerProductParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerProductLinesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerSalesParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+    #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "variant", skip_serializing_if = "Option::is_none")]
+    pub variant: Option<String>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "listing_type", skip_serializing_if = "Option::is_none")]
+    pub listing_type: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerSearchParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "product_line", skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+    #[serde(rename = "set", skip_serializing_if = "Option::is_none")]
+    pub set: Option<String>,
+    #[serde(rename = "product_type", skip_serializing_if = "Option::is_none")]
+    pub product_type: Option<String>,
+    #[serde(rename = "rarity", skip_serializing_if = "Option::is_none")]
+    pub rarity: Option<String>,
+    #[serde(rename = "card_type", skip_serializing_if = "Option::is_none")]
+    pub card_type: Option<String>,
+    #[serde(rename = "min_price", skip_serializing_if = "Option::is_none")]
+    pub min_price: Option<f64>,
+    #[serde(rename = "max_price", skip_serializing_if = "Option::is_none")]
+    pub max_price: Option<f64>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
+    pub order: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TcgplayerSetsParams {
+    #[serde(rename = "product_line", skip_serializing_if = "Option::is_none")]
+    pub product_line: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct TechCrunchTechcrunchArticleParams {
     #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
@@ -32191,6 +32931,42 @@ pub struct TechRadarTechradarNewsParams {
 pub struct TechRadarTechradarSectionsParams {
     #[serde(skip)]
     _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TelegramBotParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TelegramChannelParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TelegramChannelPostsParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "before", skip_serializing_if = "Option::is_none")]
+    pub before: Option<i64>,
+    #[serde(rename = "query", skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TelegramGroupParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct TelegramPostParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -35426,6 +36202,74 @@ pub struct WalgreensStoresParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WallapopCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WallapopFilterOptionsParams {
+    #[serde(rename = "filter_id", skip_serializing_if = "Option::is_none")]
+    pub filter_id: Option<String>,
+    #[serde(rename = "category_id", skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "brand", skip_serializing_if = "Option::is_none")]
+    pub brand: Option<String>,
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "options_query", skip_serializing_if = "Option::is_none")]
+    pub options_query: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WallapopFiltersParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "category_id", skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WallapopItemDetailParams {
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WallapopSearchParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "latitude", skip_serializing_if = "Option::is_none")]
+    pub latitude: Option<f64>,
+    #[serde(rename = "longitude", skip_serializing_if = "Option::is_none")]
+    pub longitude: Option<f64>,
+    #[serde(rename = "category_id", skip_serializing_if = "Option::is_none")]
+    pub category_id: Option<i64>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "min_price", skip_serializing_if = "Option::is_none")]
+    pub min_price: Option<f64>,
+    #[serde(rename = "max_price", skip_serializing_if = "Option::is_none")]
+    pub max_price: Option<f64>,
+    #[serde(rename = "condition", skip_serializing_if = "Option::is_none")]
+    pub condition: Option<String>,
+    #[serde(rename = "is_shippable", skip_serializing_if = "Option::is_none")]
+    pub is_shippable: Option<String>,
+    #[serde(rename = "time_filter", skip_serializing_if = "Option::is_none")]
+    pub time_filter: Option<String>,
+    #[serde(rename = "distance_in_km", skip_serializing_if = "Option::is_none")]
+    pub distance_in_km: Option<i64>,
+    #[serde(rename = "filter", skip_serializing_if = "Option::is_none")]
+    pub filter: Option<Vec<String>>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct WalmartProductParams {
     #[serde(rename = "item_id", skip_serializing_if = "Option::is_none")]
     pub item_id: Option<String>,
@@ -35479,6 +36323,96 @@ pub struct WashingtonPostWapoNewsParams {
 pub struct WashingtonPostWapoSectionsParams {
     #[serde(skip)]
     _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadLanguagesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadPartParams {
+    #[serde(rename = "part_id", skip_serializing_if = "Option::is_none")]
+    pub part_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadPartCommentsParams {
+    #[serde(rename = "part_id", skip_serializing_if = "Option::is_none")]
+    pub part_id: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadSearchParams {
+    #[serde(rename = "query", skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "filter", skip_serializing_if = "Option::is_none")]
+    pub filter: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<i64>,
+    #[serde(rename = "language", skip_serializing_if = "Option::is_none")]
+    pub language: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadSearchUsersParams {
+    #[serde(rename = "query", skip_serializing_if = "Option::is_none")]
+    pub query: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadStoryParams {
+    #[serde(rename = "story_id", skip_serializing_if = "Option::is_none")]
+    pub story_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadStoryPartsParams {
+    #[serde(rename = "story_id", skip_serializing_if = "Option::is_none")]
+    pub story_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadStoryRecommendationsParams {
+    #[serde(rename = "story_id", skip_serializing_if = "Option::is_none")]
+    pub story_id: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadUserParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct WattpadUserStoriesParams {
+    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -37655,6 +38589,18 @@ pub struct AliExpressApi {
 }
 
 impl AliExpressApi {
+    pub async fn aliexpress_categories(&self, params: AliExpressAliexpressCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("aliexpress-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn aliexpress_category_ids(&self, params: AliExpressAliexpressCategoryIdsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("aliexpress-category-ids", &params, RequestOptions::default()).await
+    }
+
+    pub async fn aliexpress_category_products(&self, params: AliExpressAliexpressCategoryProductsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("aliexpress-category-products", &params, RequestOptions::default()).await
+    }
+
     pub async fn aliexpress_reviews(&self, params: AliExpressAliexpressReviewsParams) -> Result<ApiResponse, Error> {
         self.inner.call("aliexpress-reviews", &params, RequestOptions::default()).await
     }
@@ -37665,6 +38611,14 @@ impl AliExpressApi {
 
     pub async fn aliexpress_search_filters(&self, params: AliExpressAliexpressSearchFiltersParams) -> Result<ApiResponse, Error> {
         self.inner.call("aliexpress-search-filters", &params, RequestOptions::default()).await
+    }
+
+    pub async fn aliexpress_suggest(&self, params: AliExpressAliexpressSuggestParams) -> Result<ApiResponse, Error> {
+        self.inner.call("aliexpress-suggest", &params, RequestOptions::default()).await
+    }
+
+    pub async fn aliexpress_trending_searches(&self, params: AliExpressAliexpressTrendingSearchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("aliexpress-trending-searches", &params, RequestOptions::default()).await
     }
 
 }
@@ -40735,6 +41689,22 @@ impl DatasetsApi {
         self.inner.call("datasets-airbnb-markets-search", &params, RequestOptions::default()).await
     }
 
+    pub async fn apple_maps_places_facets(&self, params: DatasetsAppleMapsPlacesFacetsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("datasets-apple-maps-places-facets", &params, RequestOptions::default()).await
+    }
+
+    pub async fn apple_maps_places_item(&self, params: DatasetsAppleMapsPlacesItemParams) -> Result<ApiResponse, Error> {
+        self.inner.call("datasets-apple-maps-places-item", &params, RequestOptions::default()).await
+    }
+
+    pub async fn apple_maps_places_nearby(&self, params: DatasetsAppleMapsPlacesNearbyParams) -> Result<ApiResponse, Error> {
+        self.inner.call("datasets-apple-maps-places-nearby", &params, RequestOptions::default()).await
+    }
+
+    pub async fn apple_maps_places_search(&self, params: DatasetsAppleMapsPlacesSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("datasets-apple-maps-places-search", &params, RequestOptions::default()).await
+    }
+
     pub async fn apple_podcasts_shows_facets(&self, params: DatasetsApplePodcastsShowsFacetsParams) -> Result<ApiResponse, Error> {
         self.inner.call("datasets-apple-podcasts-shows-facets", &params, RequestOptions::default()).await
     }
@@ -41757,6 +42727,78 @@ impl DraftKingsSportsbookApi {
 
     pub async fn draftkings_teams(&self, params: DraftKingsSportsbookDraftkingsTeamsParams) -> Result<ApiResponse, Error> {
         self.inner.call("draftkings-teams", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct DramaBoxApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl DramaBoxApi {
+    pub async fn dramabox_browse(&self, params: DramaBoxDramaboxBrowseParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-browse", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_categories(&self, params: DramaBoxDramaboxCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_category_books(&self, params: DramaBoxDramaboxCategoryBooksParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-category-books", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_channels(&self, params: DramaBoxDramaboxChannelsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-channels", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_drama(&self, params: DramaBoxDramaboxDramaParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-drama", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_genres(&self, params: DramaBoxDramaboxGenresParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-genres", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_home(&self, params: DramaBoxDramaboxHomeParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-home", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_more(&self, params: DramaBoxDramaboxMoreParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-more", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_performer(&self, params: DramaBoxDramaboxPerformerParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-performer", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_rank(&self, params: DramaBoxDramaboxRankParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-rank", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_recommend(&self, params: DramaBoxDramaboxRecommendParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-recommend", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_search(&self, params: DramaBoxDramaboxSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_suggest(&self, params: DramaBoxDramaboxSuggestParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-suggest", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_tag(&self, params: DramaBoxDramaboxTagParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-tag", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_theater(&self, params: DramaBoxDramaboxTheaterParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-theater", &params, RequestOptions::default()).await
+    }
+
+    pub async fn dramabox_trending(&self, params: DramaBoxDramaboxTrendingParams) -> Result<ApiResponse, Error> {
+        self.inner.call("dramabox-trending", &params, RequestOptions::default()).await
     }
 
 }
@@ -46063,8 +47105,20 @@ impl JumiaApi {
         self.inner.call("jumia-product", &params, RequestOptions::default()).await
     }
 
+    pub async fn reviews(&self, params: JumiaReviewsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("jumia-reviews", &params, RequestOptions::default()).await
+    }
+
     pub async fn search(&self, params: JumiaSearchParams) -> Result<ApiResponse, Error> {
         self.inner.call("jumia-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn sitemap_urls(&self, params: JumiaSitemapUrlsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("jumia-sitemap-urls", &params, RequestOptions::default()).await
+    }
+
+    pub async fn sitemaps(&self, params: JumiaSitemapsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("jumia-sitemaps", &params, RequestOptions::default()).await
     }
 
 }
@@ -46337,6 +47391,98 @@ impl KhaleejTimesApi {
 
     pub async fn khaleejtimes_sections(&self, params: KhaleejTimesKhaleejtimesSectionsParams) -> Result<ApiResponse, Error> {
         self.inner.call("khaleejtimes-sections", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct KickApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl KickApi {
+    pub async fn categories(&self, params: KickCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn category_clips(&self, params: KickCategoryClipsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-category-clips", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel(&self, params: KickChannelParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_chatroom(&self, params: KickChannelChatroomParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel-chatroom", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_clips(&self, params: KickChannelClipsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel-clips", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_emotes(&self, params: KickChannelEmotesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel-emotes", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_links(&self, params: KickChannelLinksParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel-links", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_streams(&self, params: KickChannelStreamsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel-streams", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_videos(&self, params: KickChannelVideosParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-channel-videos", &params, RequestOptions::default()).await
+    }
+
+    pub async fn clip(&self, params: KickClipParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-clip", &params, RequestOptions::default()).await
+    }
+
+    pub async fn clips(&self, params: KickClipsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-clips", &params, RequestOptions::default()).await
+    }
+
+    pub async fn drops(&self, params: KickDropsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-drops", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gifts(&self, params: KickGiftsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-gifts", &params, RequestOptions::default()).await
+    }
+
+    pub async fn languages(&self, params: KickLanguagesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-languages", &params, RequestOptions::default()).await
+    }
+
+    pub async fn livestreams(&self, params: KickLivestreamsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-livestreams", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_categories(&self, params: KickSearchCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-search-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_channels(&self, params: KickSearchChannelsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-search-channels", &params, RequestOptions::default()).await
+    }
+
+    pub async fn subcategories(&self, params: KickSubcategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-subcategories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn subcategory(&self, params: KickSubcategoryParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-subcategory", &params, RequestOptions::default()).await
+    }
+
+    pub async fn top_channels(&self, params: KickTopChannelsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-top-channels", &params, RequestOptions::default()).await
+    }
+
+    pub async fn video(&self, params: KickVideoParams) -> Result<ApiResponse, Error> {
+        self.inner.call("kick-video", &params, RequestOptions::default()).await
     }
 
 }
@@ -49822,6 +50968,38 @@ impl PradaApi {
 }
 
 #[derive(Clone)]
+pub struct PriceChartingApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl PriceChartingApi {
+    pub async fn pricecharting_big_movers(&self, params: PriceChartingPricechartingBigMoversParams) -> Result<ApiResponse, Error> {
+        self.inner.call("pricecharting-big-movers", &params, RequestOptions::default()).await
+    }
+
+    pub async fn pricecharting_categories(&self, params: PriceChartingPricechartingCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("pricecharting-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn pricecharting_console(&self, params: PriceChartingPricechartingConsoleParams) -> Result<ApiResponse, Error> {
+        self.inner.call("pricecharting-console", &params, RequestOptions::default()).await
+    }
+
+    pub async fn pricecharting_price_history(&self, params: PriceChartingPricechartingPriceHistoryParams) -> Result<ApiResponse, Error> {
+        self.inner.call("pricecharting-price-history", &params, RequestOptions::default()).await
+    }
+
+    pub async fn pricecharting_product(&self, params: PriceChartingPricechartingProductParams) -> Result<ApiResponse, Error> {
+        self.inner.call("pricecharting-product", &params, RequestOptions::default()).await
+    }
+
+    pub async fn pricecharting_search(&self, params: PriceChartingPricechartingSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("pricecharting-search", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct PristineAuctionApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -50029,6 +51207,10 @@ impl PsaApi {
 
     pub async fn price_guide_set(&self, params: PsaPriceGuideSetParams) -> Result<ApiResponse, Error> {
         self.inner.call("psa-price-guide-set", &params, RequestOptions::default()).await
+    }
+
+    pub async fn price_guide_sets(&self, params: PsaPriceGuideSetsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("psa-price-guide-sets", &params, RequestOptions::default()).await
     }
 
     pub async fn probatfacts_categories(&self, params: PsaProbatfactsCategoriesParams) -> Result<ApiResponse, Error> {
@@ -50453,6 +51635,58 @@ impl RedfinApi {
 
     pub async fn similar(&self, params: RedfinSimilarParams) -> Result<ApiResponse, Error> {
         self.inner.call("redfin-similar", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct ReelShortApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl ReelShortApi {
+    pub async fn reelshort_fandom_categories(&self, params: ReelShortReelshortFandomCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-fandom-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_fandom_post(&self, params: ReelShortReelshortFandomPostParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-fandom-post", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_fandom_posts(&self, params: ReelShortReelshortFandomPostsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-fandom-posts", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_home(&self, params: ReelShortReelshortHomeParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-home", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_movie(&self, params: ReelShortReelshortMovieParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-movie", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_new_releases(&self, params: ReelShortReelshortNewReleasesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-new-releases", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_search(&self, params: ReelShortReelshortSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_shelf(&self, params: ReelShortReelshortShelfParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-shelf", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_tag_books(&self, params: ReelShortReelshortTagBooksParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-tag-books", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_tag_search(&self, params: ReelShortReelshortTagSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-tag-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn reelshort_tags(&self, params: ReelShortReelshortTagsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("reelshort-tags", &params, RequestOptions::default()).await
     }
 
 }
@@ -53546,6 +54780,50 @@ impl TargetApi {
 }
 
 #[derive(Clone)]
+pub struct TcgplayerApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl TcgplayerApi {
+    pub async fn filters(&self, params: TcgplayerFiltersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-filters", &params, RequestOptions::default()).await
+    }
+
+    pub async fn listings(&self, params: TcgplayerListingsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-listings", &params, RequestOptions::default()).await
+    }
+
+    pub async fn price_guide(&self, params: TcgplayerPriceGuideParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-price-guide", &params, RequestOptions::default()).await
+    }
+
+    pub async fn price_history(&self, params: TcgplayerPriceHistoryParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-price-history", &params, RequestOptions::default()).await
+    }
+
+    pub async fn product(&self, params: TcgplayerProductParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-product", &params, RequestOptions::default()).await
+    }
+
+    pub async fn product_lines(&self, params: TcgplayerProductLinesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-product-lines", &params, RequestOptions::default()).await
+    }
+
+    pub async fn sales(&self, params: TcgplayerSalesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-sales", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search(&self, params: TcgplayerSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn sets(&self, params: TcgplayerSetsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("tcgplayer-sets", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct TechCrunchApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -53597,6 +54875,34 @@ impl TechRadarApi {
 
     pub async fn techradar_sections(&self, params: TechRadarTechradarSectionsParams) -> Result<ApiResponse, Error> {
         self.inner.call("techradar-sections", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct TelegramApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl TelegramApi {
+    pub async fn bot(&self, params: TelegramBotParams) -> Result<ApiResponse, Error> {
+        self.inner.call("telegram-bot", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel(&self, params: TelegramChannelParams) -> Result<ApiResponse, Error> {
+        self.inner.call("telegram-channel", &params, RequestOptions::default()).await
+    }
+
+    pub async fn channel_posts(&self, params: TelegramChannelPostsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("telegram-channel-posts", &params, RequestOptions::default()).await
+    }
+
+    pub async fn group(&self, params: TelegramGroupParams) -> Result<ApiResponse, Error> {
+        self.inner.call("telegram-group", &params, RequestOptions::default()).await
+    }
+
+    pub async fn post(&self, params: TelegramPostParams) -> Result<ApiResponse, Error> {
+        self.inner.call("telegram-post", &params, RequestOptions::default()).await
     }
 
 }
@@ -55658,6 +56964,34 @@ impl WalgreensApi {
 }
 
 #[derive(Clone)]
+pub struct WallapopApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl WallapopApi {
+    pub async fn categories(&self, params: WallapopCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wallapop-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn filter_options(&self, params: WallapopFilterOptionsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wallapop-filter-options", &params, RequestOptions::default()).await
+    }
+
+    pub async fn filters(&self, params: WallapopFiltersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wallapop-filters", &params, RequestOptions::default()).await
+    }
+
+    pub async fn item_detail(&self, params: WallapopItemDetailParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wallapop-item-detail", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search(&self, params: WallapopSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wallapop-search", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct WalmartApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -55701,6 +57035,58 @@ impl WashingtonPostApi {
 
     pub async fn wapo_sections(&self, params: WashingtonPostWapoSectionsParams) -> Result<ApiResponse, Error> {
         self.inner.call("wapo-sections", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct WattpadApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl WattpadApi {
+    pub async fn categories(&self, params: WattpadCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn languages(&self, params: WattpadLanguagesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-languages", &params, RequestOptions::default()).await
+    }
+
+    pub async fn part(&self, params: WattpadPartParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-part", &params, RequestOptions::default()).await
+    }
+
+    pub async fn part_comments(&self, params: WattpadPartCommentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-part-comments", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search(&self, params: WattpadSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_users(&self, params: WattpadSearchUsersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-search-users", &params, RequestOptions::default()).await
+    }
+
+    pub async fn story(&self, params: WattpadStoryParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-story", &params, RequestOptions::default()).await
+    }
+
+    pub async fn story_parts(&self, params: WattpadStoryPartsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-story-parts", &params, RequestOptions::default()).await
+    }
+
+    pub async fn story_recommendations(&self, params: WattpadStoryRecommendationsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-story-recommendations", &params, RequestOptions::default()).await
+    }
+
+    pub async fn user(&self, params: WattpadUserParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-user", &params, RequestOptions::default()).await
+    }
+
+    pub async fn user_stories(&self, params: WattpadUserStoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("wattpad-user-stories", &params, RequestOptions::default()).await
     }
 
 }
