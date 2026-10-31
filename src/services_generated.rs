@@ -52,6 +52,7 @@ pub struct Services {
     pub bleacher_report: BleacherReportApi,
     pub bloomberg: BloombergApi,
     pub bluesky: BlueskyApi,
+    pub bo3: Bo3Api,
     pub bonhams: BonhamsApi,
     pub booking: BookingApi,
     pub boots: BootsApi,
@@ -178,6 +179,7 @@ pub struct Services {
     pub google: GoogleApi,
     pub google_patents: GooglePatentsApi,
     pub google_play: GooglePlayApi,
+    pub gosu_gamers: GosuGamersApi,
     pub gq: GqApi,
     pub grailed: GrailedApi,
     pub greystar: GreystarApi,
@@ -240,6 +242,7 @@ pub struct Services {
     pub liverpool_echo: LiverpoolEchoApi,
     pub live_science: LiveScienceApi,
     pub live_score: LiveScoreApi,
+    pub lo_l_esports: LoLEsportsApi,
     pub lululemon: LululemonApi,
     pub mac_rumors: MacRumorsApi,
     pub macy_s: MacySApi,
@@ -290,6 +293,7 @@ pub struct Services {
     pub nz_herald: NzHeraldApi,
     pub oh_polly: OhPollyApi,
     pub old_navy: OldNavyApi,
+    pub open_dota: OpenDotaApi,
     pub open_sea: OpenSeaApi,
     pub open_table: OpenTableApi,
     pub otto: OttoApi,
@@ -333,6 +337,7 @@ pub struct Services {
     pub rebag: RebagApi,
     pub reddit: RedditApi,
     pub redfin: RedfinApi,
+    pub rednote: RednoteApi,
     pub reel_short: ReelShortApi,
     pub referrals: ReferralsApi,
     pub research_jobs: ResearchJobsApi,
@@ -364,6 +369,7 @@ pub struct Services {
     pub shake_shack: ShakeShackApi,
     pub shein: SheinApi,
     pub shop_app: ShopAppApi,
+    pub shopee: ShopeeApi,
     pub shopify: ShopifyApi,
     pub similar_web: SimilarWebApi,
     pub skims: SkimsApi,
@@ -456,6 +462,7 @@ pub struct Services {
     pub vestiaire: VestiaireApi,
     pub vice: ViceApi,
     pub vinted: VintedApi,
+    pub vlr: VlrApi,
     pub vox: VoxApi,
     pub vrbo: VrboApi,
     pub wales_online: WalesOnlineApi,
@@ -477,6 +484,7 @@ pub struct Services {
     pub x: XApi,
     pub xbox: XboxApi,
     pub xda: XdaApi,
+    pub xiaohongshu: XiaohongshuApi,
     pub yahoo_autos: YahooAutosApi,
     pub yahoo_entertainment: YahooEntertainmentApi,
     pub yahoo_finance: YahooFinanceApi,
@@ -550,6 +558,7 @@ impl Services {
             bleacher_report: BleacherReportApi { inner: Arc::clone(&inner) },
             bloomberg: BloombergApi { inner: Arc::clone(&inner) },
             bluesky: BlueskyApi { inner: Arc::clone(&inner) },
+            bo3: Bo3Api { inner: Arc::clone(&inner) },
             bonhams: BonhamsApi { inner: Arc::clone(&inner) },
             booking: BookingApi { inner: Arc::clone(&inner) },
             boots: BootsApi { inner: Arc::clone(&inner) },
@@ -676,6 +685,7 @@ impl Services {
             google: GoogleApi { inner: Arc::clone(&inner) },
             google_patents: GooglePatentsApi { inner: Arc::clone(&inner) },
             google_play: GooglePlayApi { inner: Arc::clone(&inner) },
+            gosu_gamers: GosuGamersApi { inner: Arc::clone(&inner) },
             gq: GqApi { inner: Arc::clone(&inner) },
             grailed: GrailedApi { inner: Arc::clone(&inner) },
             greystar: GreystarApi { inner: Arc::clone(&inner) },
@@ -738,6 +748,7 @@ impl Services {
             liverpool_echo: LiverpoolEchoApi { inner: Arc::clone(&inner) },
             live_science: LiveScienceApi { inner: Arc::clone(&inner) },
             live_score: LiveScoreApi { inner: Arc::clone(&inner) },
+            lo_l_esports: LoLEsportsApi { inner: Arc::clone(&inner) },
             lululemon: LululemonApi { inner: Arc::clone(&inner) },
             mac_rumors: MacRumorsApi { inner: Arc::clone(&inner) },
             macy_s: MacySApi { inner: Arc::clone(&inner) },
@@ -788,6 +799,7 @@ impl Services {
             nz_herald: NzHeraldApi { inner: Arc::clone(&inner) },
             oh_polly: OhPollyApi { inner: Arc::clone(&inner) },
             old_navy: OldNavyApi { inner: Arc::clone(&inner) },
+            open_dota: OpenDotaApi { inner: Arc::clone(&inner) },
             open_sea: OpenSeaApi { inner: Arc::clone(&inner) },
             open_table: OpenTableApi { inner: Arc::clone(&inner) },
             otto: OttoApi { inner: Arc::clone(&inner) },
@@ -831,6 +843,7 @@ impl Services {
             rebag: RebagApi { inner: Arc::clone(&inner) },
             reddit: RedditApi { inner: Arc::clone(&inner) },
             redfin: RedfinApi { inner: Arc::clone(&inner) },
+            rednote: RednoteApi { inner: Arc::clone(&inner) },
             reel_short: ReelShortApi { inner: Arc::clone(&inner) },
             referrals: ReferralsApi { inner: Arc::clone(&inner) },
             research_jobs: ResearchJobsApi { inner: Arc::clone(&inner) },
@@ -862,6 +875,7 @@ impl Services {
             shake_shack: ShakeShackApi { inner: Arc::clone(&inner) },
             shein: SheinApi { inner: Arc::clone(&inner) },
             shop_app: ShopAppApi { inner: Arc::clone(&inner) },
+            shopee: ShopeeApi { inner: Arc::clone(&inner) },
             shopify: ShopifyApi { inner: Arc::clone(&inner) },
             similar_web: SimilarWebApi { inner: Arc::clone(&inner) },
             skims: SkimsApi { inner: Arc::clone(&inner) },
@@ -954,6 +968,7 @@ impl Services {
             vestiaire: VestiaireApi { inner: Arc::clone(&inner) },
             vice: ViceApi { inner: Arc::clone(&inner) },
             vinted: VintedApi { inner: Arc::clone(&inner) },
+            vlr: VlrApi { inner: Arc::clone(&inner) },
             vox: VoxApi { inner: Arc::clone(&inner) },
             vrbo: VrboApi { inner: Arc::clone(&inner) },
             wales_online: WalesOnlineApi { inner: Arc::clone(&inner) },
@@ -975,6 +990,7 @@ impl Services {
             x: XApi { inner: Arc::clone(&inner) },
             xbox: XboxApi { inner: Arc::clone(&inner) },
             xda: XdaApi { inner: Arc::clone(&inner) },
+            xiaohongshu: XiaohongshuApi { inner: Arc::clone(&inner) },
             yahoo_autos: YahooAutosApi { inner: Arc::clone(&inner) },
             yahoo_entertainment: YahooEntertainmentApi { inner: Arc::clone(&inner) },
             yahoo_finance: YahooFinanceApi { inner: Arc::clone(&inner) },
@@ -3969,6 +3985,322 @@ pub struct BlueskySearchActorsParams {
 pub struct BlueskyTrendingTopicsParams {
     #[serde(skip)]
     _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3EconomyBaselineParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3ForumParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<i64>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3ForumCategoriesParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3MatchParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3MatchGamesParams {
+    #[serde(rename = "match_id", skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3MatchHistoryParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "tier", skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3MatchPlayersParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3NewsCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3NewsFeedParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "section", skip_serializing_if = "Option::is_none")]
+    pub section: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<i64>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3PlayerParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3PlayerLeaderboardParams {
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(rename = "tier", skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
+    pub order: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3PlayerRecentMatchesParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "opponent", skip_serializing_if = "Option::is_none")]
+    pub opponent: Option<String>,
+    #[serde(rename = "tournament", skip_serializing_if = "Option::is_none")]
+    pub tournament: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3PlayerStatsParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "kind", skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3RecordsParams {
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(rename = "record_type", skip_serializing_if = "Option::is_none")]
+    pub record_type: Option<String>,
+    #[serde(rename = "match", skip_serializing_if = "Option::is_none")]
+    pub match_: Option<String>,
+    #[serde(rename = "tournament", skip_serializing_if = "Option::is_none")]
+    pub tournament: Option<String>,
+    #[serde(rename = "team", skip_serializing_if = "Option::is_none")]
+    pub team: Option<String>,
+    #[serde(rename = "player", skip_serializing_if = "Option::is_none")]
+    pub player: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TeamParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TeamPrizeMoneyParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TeamRankingDatesParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TeamRankingsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "date", skip_serializing_if = "Option::is_none")]
+    pub date: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "per_page", skip_serializing_if = "Option::is_none")]
+    pub per_page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TeamRecentMatchesParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "opponent", skip_serializing_if = "Option::is_none")]
+    pub opponent: Option<String>,
+    #[serde(rename = "tournament", skip_serializing_if = "Option::is_none")]
+    pub tournament: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TeamStatsParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "kind", skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TournamentParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TournamentMapPoolParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TournamentMvpsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TournamentSquadsParams {
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TournamentStagesParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TournamentsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "tier", skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+    #[serde(rename = "event_type", skip_serializing_if = "Option::is_none")]
+    pub event_type: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3TransfersParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+    #[serde(rename = "player_id", skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<i64>,
+    #[serde(rename = "action", skip_serializing_if = "Option::is_none")]
+    pub action: Option<String>,
+    #[serde(rename = "role", skip_serializing_if = "Option::is_none")]
+    pub role: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct Bo3ValorantLeaderboardParams {
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
+    pub order: Option<String>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -15912,6 +16244,144 @@ pub struct GooglePlaySuggestParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersEncountersParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "match_id", skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+    #[serde(rename = "team1_id", skip_serializing_if = "Option::is_none")]
+    pub team1_id: Option<String>,
+    #[serde(rename = "team2_id", skip_serializing_if = "Option::is_none")]
+    pub team2_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersGamesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersMatchParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+    #[serde(rename = "match_id", skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersMatchGameParams {
+    #[serde(rename = "game_id", skip_serializing_if = "Option::is_none")]
+    pub game_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersMatchesParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersPlayerParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "player_id", skip_serializing_if = "Option::is_none")]
+    pub player_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersRankingsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "region_id", skip_serializing_if = "Option::is_none")]
+    pub region_id: Option<i64>,
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersResultsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersStageGroupsParams {
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+    #[serde(rename = "stage_id", skip_serializing_if = "Option::is_none")]
+    pub stage_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersTeamParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersTeamResultsParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersTournamentParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersTournamentParticipantsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersTournamentTalentsParams {
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct GosuGamersGosugamersTournamentsParams {
+    #[serde(rename = "game", skip_serializing_if = "Option::is_none")]
+    pub game: Option<String>,
+    #[serde(rename = "state", skip_serializing_if = "Option::is_none")]
+    pub state: Option<String>,
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "page_size", skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct GqArticleParams {
     #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
@@ -19974,6 +20444,126 @@ pub struct LiveScoreLivescoreTeamParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsCompletedEventsParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsEventParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "match_id", skip_serializing_if = "Option::is_none")]
+    pub match_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsGameDetailsParams {
+    #[serde(rename = "game_id", skip_serializing_if = "Option::is_none")]
+    pub game_id: Option<String>,
+    #[serde(rename = "starting_time", skip_serializing_if = "Option::is_none")]
+    pub starting_time: Option<String>,
+    #[serde(rename = "participant_ids", skip_serializing_if = "Option::is_none")]
+    pub participant_ids: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsGameWindowParams {
+    #[serde(rename = "game_id", skip_serializing_if = "Option::is_none")]
+    pub game_id: Option<String>,
+    #[serde(rename = "starting_time", skip_serializing_if = "Option::is_none")]
+    pub starting_time: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsGprParams {
+    #[serde(rename = "season", skip_serializing_if = "Option::is_none")]
+    pub season: Option<String>,
+    #[serde(rename = "league", skip_serializing_if = "Option::is_none")]
+    pub league: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "history", skip_serializing_if = "Option::is_none")]
+    pub history: Option<bool>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsLeaguesParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsLiveParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsNewsParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsScheduleParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "league_id", skip_serializing_if = "Option::is_none")]
+    pub league_id: Option<String>,
+    #[serde(rename = "page_token", skip_serializing_if = "Option::is_none")]
+    pub page_token: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsSeasonsParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "season_id", skip_serializing_if = "Option::is_none")]
+    pub season_id: Option<String>,
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "league_id", skip_serializing_if = "Option::is_none")]
+    pub league_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsStandingsParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "tournament_id", skip_serializing_if = "Option::is_none")]
+    pub tournament_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsTeamsParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "slug", skip_serializing_if = "Option::is_none")]
+    pub slug: Option<String>,
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct LoLesportsLolesportsTournamentsParams {
+    #[serde(rename = "hl", skip_serializing_if = "Option::is_none")]
+    pub hl: Option<String>,
+    #[serde(rename = "league_id", skip_serializing_if = "Option::is_none")]
+    pub league_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct LululemonCategoriesParams {
     #[serde(rename = "section", skip_serializing_if = "Option::is_none")]
     pub section: Option<String>,
@@ -23592,6 +24182,196 @@ pub struct OldNavyOldnavyStoresParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaAbilitiesParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaBenchmarksParams {
+    #[serde(rename = "hero_id", skip_serializing_if = "Option::is_none")]
+    pub hero_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaConstantsParams {
+    #[serde(rename = "resource", skip_serializing_if = "Option::is_none")]
+    pub resource: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaHeroDurationsParams {
+    #[serde(rename = "hero_id", skip_serializing_if = "Option::is_none")]
+    pub hero_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaHeroItemsParams {
+    #[serde(rename = "hero_id", skip_serializing_if = "Option::is_none")]
+    pub hero_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaHeroMatchupsParams {
+    #[serde(rename = "hero_id", skip_serializing_if = "Option::is_none")]
+    pub hero_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaHeroStatsParams {
+    #[serde(rename = "primary_attr", skip_serializing_if = "Option::is_none")]
+    pub primary_attr: Option<String>,
+    #[serde(rename = "attack_type", skip_serializing_if = "Option::is_none")]
+    pub attack_type: Option<String>,
+    #[serde(rename = "role", skip_serializing_if = "Option::is_none")]
+    pub role: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "desc", skip_serializing_if = "Option::is_none")]
+    pub desc: Option<bool>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaHeroesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaItemsParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "quality", skip_serializing_if = "Option::is_none")]
+    pub quality: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaLeagueParams {
+    #[serde(rename = "league_id", skip_serializing_if = "Option::is_none")]
+    pub league_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaLeagueMatchIdsParams {
+    #[serde(rename = "league_id", skip_serializing_if = "Option::is_none")]
+    pub league_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaLeagueMatchesParams {
+    #[serde(rename = "league_id", skip_serializing_if = "Option::is_none")]
+    pub league_id: Option<i64>,
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaLeaguesParams {
+    #[serde(rename = "tier", skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaLiveParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaMatchParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaPatchNotesParams {
+    #[serde(rename = "patch", skip_serializing_if = "Option::is_none")]
+    pub patch: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaProMatchesParams {
+    #[serde(rename = "less_than_match_id", skip_serializing_if = "Option::is_none")]
+    pub less_than_match_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaProPlayersParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaRankDistributionParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaRecordsParams {
+    #[serde(rename = "field", skip_serializing_if = "Option::is_none")]
+    pub field: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaScenariosParams {
+    #[serde(rename = "kind", skip_serializing_if = "Option::is_none")]
+    pub kind: Option<String>,
+    #[serde(rename = "hero_id", skip_serializing_if = "Option::is_none")]
+    pub hero_id: Option<i64>,
+    #[serde(rename = "item", skip_serializing_if = "Option::is_none")]
+    pub item: Option<String>,
+    #[serde(rename = "lane_role", skip_serializing_if = "Option::is_none")]
+    pub lane_role: Option<i64>,
+    #[serde(rename = "scenario", skip_serializing_if = "Option::is_none")]
+    pub scenario: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaTeamParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaTeamHeroesParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaTeamMatchesParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaTeamPlayersParams {
+    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+    pub team_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct OpenDotaOpendotaTeamsParams {
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct OpenSeaOpenseaActivityParams {
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
@@ -27032,6 +27812,36 @@ pub struct RedfinSimilarParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct RednoteExploreParams {
+    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+    pub channel_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct RednoteNoteParams {
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "note_id", skip_serializing_if = "Option::is_none")]
+    pub note_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct RednoteNoteCommentsParams {
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "note_id", skip_serializing_if = "Option::is_none")]
+    pub note_id: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct RednoteSearchSuggestParams {
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct ReelShortReelshortFandomCategoriesParams {
     #[serde(skip)]
     _empty: Option<()>,
@@ -28983,6 +29793,122 @@ pub struct ShopAppSuggestionsParams {
     pub query: Option<String>,
     #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
     pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeBannersParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "slot", skip_serializing_if = "Option::is_none")]
+    pub slot: Option<String>,
+    #[serde(rename = "space_key", skip_serializing_if = "Option::is_none")]
+    pub space_key: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeCategoriesParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeCategoryDetailParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "catids", skip_serializing_if = "Option::is_none")]
+    pub catids: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeFlashSaleParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeFooterParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeHomeParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeHomeCategoriesParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeLocationFiltersParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeMallCategoriesParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeePrefillsParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeSearchFiltersParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeSearchHintsParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
+    #[serde(rename = "version", skip_serializing_if = "Option::is_none")]
+    pub version: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeShopInfoParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "shop_id", skip_serializing_if = "Option::is_none")]
+    pub shop_id: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeShopsParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+    #[serde(rename = "offset", skip_serializing_if = "Option::is_none")]
+    pub offset: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct ShopeeSuggestParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -36076,6 +37002,186 @@ pub struct VintedMemberParams {
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrEventParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrEventAgentsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrEventMatchesParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrEventStatsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "side", skip_serializing_if = "Option::is_none")]
+    pub side: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrEventsParams {
+    #[serde(rename = "tier", skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrForumCategoriesParams {
+    #[serde(skip)]
+    _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrForumThreadsParams {
+    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+    pub category: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrMatchParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrMatchEconomyParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrMatchPerformanceParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrMatchRoundsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrMatchesParams {
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrNewsParams {
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrNewsArticleParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrPlayerParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrPlayerMatchesParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrRankingsParams {
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "limit", skip_serializing_if = "Option::is_none")]
+    pub limit: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrResultsParams {
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrSearchParams {
+    #[serde(rename = "q", skip_serializing_if = "Option::is_none")]
+    pub q: Option<String>,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub type_: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrStatsParams {
+    #[serde(rename = "tier", skip_serializing_if = "Option::is_none")]
+    pub tier: Option<String>,
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
+    pub region: Option<String>,
+    #[serde(rename = "timespan", skip_serializing_if = "Option::is_none")]
+    pub timespan: Option<String>,
+    #[serde(rename = "side", skip_serializing_if = "Option::is_none")]
+    pub side: Option<String>,
+    #[serde(rename = "role", skip_serializing_if = "Option::is_none")]
+    pub role: Option<String>,
+    #[serde(rename = "agent", skip_serializing_if = "Option::is_none")]
+    pub agent: Option<String>,
+    #[serde(rename = "map", skip_serializing_if = "Option::is_none")]
+    pub map: Option<String>,
+    #[serde(rename = "min_rounds", skip_serializing_if = "Option::is_none")]
+    pub min_rounds: Option<i64>,
+    #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(rename = "to", skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(rename = "min_rating", skip_serializing_if = "Option::is_none")]
+    pub min_rating: Option<String>,
+    #[serde(rename = "sort", skip_serializing_if = "Option::is_none")]
+    pub sort: Option<String>,
+    #[serde(rename = "dir", skip_serializing_if = "Option::is_none")]
+    pub dir: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrTeamParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrTeamMapsParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct VlrTeamMatchesParams {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+    pub page: Option<i64>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct VoxArticleParams {
     #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
@@ -37009,6 +38115,40 @@ pub struct XdaNewsParams {
 pub struct XdaSectionsParams {
     #[serde(skip)]
     _empty: Option<()>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct XiaohongshuExploreParams {
+    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+    pub channel_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct XiaohongshuNoteParams {
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "note_id", skip_serializing_if = "Option::is_none")]
+    pub note_id: Option<String>,
+    #[serde(rename = "xsec_token", skip_serializing_if = "Option::is_none")]
+    pub xsec_token: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct XiaohongshuNoteCommentsParams {
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
+    #[serde(rename = "note_id", skip_serializing_if = "Option::is_none")]
+    pub note_id: Option<String>,
+    #[serde(rename = "xsec_token", skip_serializing_if = "Option::is_none")]
+    pub xsec_token: Option<String>,
+    #[serde(rename = "cursor", skip_serializing_if = "Option::is_none")]
+    pub cursor: Option<String>,
+}
+
+#[derive(Debug, Clone, Default, serde::Serialize)]
+pub struct XiaohongshuSearchSuggestParams {
+    #[serde(rename = "keyword", skip_serializing_if = "Option::is_none")]
+    pub keyword: Option<String>,
 }
 
 #[derive(Debug, Clone, Default, serde::Serialize)]
@@ -39939,6 +41079,126 @@ impl BlueskyApi {
 
     pub async fn trending_topics(&self, params: BlueskyTrendingTopicsParams) -> Result<ApiResponse, Error> {
         self.inner.call("bluesky-trending-topics", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct Bo3Api {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl Bo3Api {
+    pub async fn economy_baseline(&self, params: Bo3EconomyBaselineParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-economy-baseline", &params, RequestOptions::default()).await
+    }
+
+    pub async fn forum(&self, params: Bo3ForumParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-forum", &params, RequestOptions::default()).await
+    }
+
+    pub async fn forum_categories(&self, params: Bo3ForumCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-forum-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_(&self, params: Bo3MatchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-match", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_games(&self, params: Bo3MatchGamesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-match-games", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_history(&self, params: Bo3MatchHistoryParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-match-history", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_players(&self, params: Bo3MatchPlayersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-match-players", &params, RequestOptions::default()).await
+    }
+
+    pub async fn news_categories(&self, params: Bo3NewsCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-news-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn news_feed(&self, params: Bo3NewsFeedParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-news-feed", &params, RequestOptions::default()).await
+    }
+
+    pub async fn player(&self, params: Bo3PlayerParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-player", &params, RequestOptions::default()).await
+    }
+
+    pub async fn player_leaderboard(&self, params: Bo3PlayerLeaderboardParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-player-leaderboard", &params, RequestOptions::default()).await
+    }
+
+    pub async fn player_recent_matches(&self, params: Bo3PlayerRecentMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-player-recent-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn player_stats(&self, params: Bo3PlayerStatsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-player-stats", &params, RequestOptions::default()).await
+    }
+
+    pub async fn records(&self, params: Bo3RecordsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-records", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team(&self, params: Bo3TeamParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-team", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_prize_money(&self, params: Bo3TeamPrizeMoneyParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-team-prize-money", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_ranking_dates(&self, params: Bo3TeamRankingDatesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-team-ranking-dates", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_rankings(&self, params: Bo3TeamRankingsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-team-rankings", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_recent_matches(&self, params: Bo3TeamRecentMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-team-recent-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_stats(&self, params: Bo3TeamStatsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-team-stats", &params, RequestOptions::default()).await
+    }
+
+    pub async fn tournament(&self, params: Bo3TournamentParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-tournament", &params, RequestOptions::default()).await
+    }
+
+    pub async fn tournament_map_pool(&self, params: Bo3TournamentMapPoolParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-tournament-map-pool", &params, RequestOptions::default()).await
+    }
+
+    pub async fn tournament_mvps(&self, params: Bo3TournamentMvpsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-tournament-mvps", &params, RequestOptions::default()).await
+    }
+
+    pub async fn tournament_squads(&self, params: Bo3TournamentSquadsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-tournament-squads", &params, RequestOptions::default()).await
+    }
+
+    pub async fn tournament_stages(&self, params: Bo3TournamentStagesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-tournament-stages", &params, RequestOptions::default()).await
+    }
+
+    pub async fn tournaments(&self, params: Bo3TournamentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-tournaments", &params, RequestOptions::default()).await
+    }
+
+    pub async fn transfers(&self, params: Bo3TransfersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-transfers", &params, RequestOptions::default()).await
+    }
+
+    pub async fn valorant_leaderboard(&self, params: Bo3ValorantLeaderboardParams) -> Result<ApiResponse, Error> {
+        self.inner.call("bo3-valorant-leaderboard", &params, RequestOptions::default()).await
     }
 
 }
@@ -45568,6 +46828,74 @@ impl GooglePlayApi {
 }
 
 #[derive(Clone)]
+pub struct GosuGamersApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl GosuGamersApi {
+    pub async fn gosugamers_encounters(&self, params: GosuGamersGosugamersEncountersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-encounters", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_games(&self, params: GosuGamersGosugamersGamesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-games", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_match(&self, params: GosuGamersGosugamersMatchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-match", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_match_game(&self, params: GosuGamersGosugamersMatchGameParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-match-game", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_matches(&self, params: GosuGamersGosugamersMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_player(&self, params: GosuGamersGosugamersPlayerParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-player", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_rankings(&self, params: GosuGamersGosugamersRankingsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-rankings", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_results(&self, params: GosuGamersGosugamersResultsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-results", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_stage_groups(&self, params: GosuGamersGosugamersStageGroupsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-stage-groups", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_team(&self, params: GosuGamersGosugamersTeamParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-team", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_team_results(&self, params: GosuGamersGosugamersTeamResultsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-team-results", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_tournament(&self, params: GosuGamersGosugamersTournamentParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-tournament", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_tournament_participants(&self, params: GosuGamersGosugamersTournamentParticipantsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-tournament-participants", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_tournament_talents(&self, params: GosuGamersGosugamersTournamentTalentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-tournament-talents", &params, RequestOptions::default()).await
+    }
+
+    pub async fn gosugamers_tournaments(&self, params: GosuGamersGosugamersTournamentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("gosugamers-tournaments", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct GqApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -47956,6 +49284,66 @@ impl LiveScoreApi {
 }
 
 #[derive(Clone)]
+pub struct LoLEsportsApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl LoLEsportsApi {
+    pub async fn lolesports_completed_events(&self, params: LoLesportsLolesportsCompletedEventsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-completed-events", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_event(&self, params: LoLesportsLolesportsEventParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-event", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_game_details(&self, params: LoLesportsLolesportsGameDetailsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-game-details", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_game_window(&self, params: LoLesportsLolesportsGameWindowParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-game-window", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_gpr(&self, params: LoLesportsLolesportsGprParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-gpr", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_leagues(&self, params: LoLesportsLolesportsLeaguesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-leagues", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_live(&self, params: LoLesportsLolesportsLiveParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-live", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_news(&self, params: LoLesportsLolesportsNewsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-news", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_schedule(&self, params: LoLesportsLolesportsScheduleParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-schedule", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_seasons(&self, params: LoLesportsLolesportsSeasonsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-seasons", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_standings(&self, params: LoLesportsLolesportsStandingsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-standings", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_teams(&self, params: LoLesportsLolesportsTeamsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-teams", &params, RequestOptions::default()).await
+    }
+
+    pub async fn lolesports_tournaments(&self, params: LoLesportsLolesportsTournamentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("lolesports-tournaments", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct LululemonApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -49719,6 +51107,118 @@ impl OldNavyApi {
 
     pub async fn oldnavy_stores(&self, params: OldNavyOldnavyStoresParams) -> Result<ApiResponse, Error> {
         self.inner.call("oldnavy-stores", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct OpenDotaApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl OpenDotaApi {
+    pub async fn opendota_abilities(&self, params: OpenDotaOpendotaAbilitiesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-abilities", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_benchmarks(&self, params: OpenDotaOpendotaBenchmarksParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-benchmarks", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_constants(&self, params: OpenDotaOpendotaConstantsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-constants", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_hero_durations(&self, params: OpenDotaOpendotaHeroDurationsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-hero-durations", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_hero_items(&self, params: OpenDotaOpendotaHeroItemsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-hero-items", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_hero_matchups(&self, params: OpenDotaOpendotaHeroMatchupsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-hero-matchups", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_hero_stats(&self, params: OpenDotaOpendotaHeroStatsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-hero-stats", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_heroes(&self, params: OpenDotaOpendotaHeroesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-heroes", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_items(&self, params: OpenDotaOpendotaItemsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-items", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_league(&self, params: OpenDotaOpendotaLeagueParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-league", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_league_match_ids(&self, params: OpenDotaOpendotaLeagueMatchIdsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-league-match-ids", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_league_matches(&self, params: OpenDotaOpendotaLeagueMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-league-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_leagues(&self, params: OpenDotaOpendotaLeaguesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-leagues", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_live(&self, params: OpenDotaOpendotaLiveParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-live", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_match(&self, params: OpenDotaOpendotaMatchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-match", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_patch_notes(&self, params: OpenDotaOpendotaPatchNotesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-patch-notes", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_pro_matches(&self, params: OpenDotaOpendotaProMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-pro-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_pro_players(&self, params: OpenDotaOpendotaProPlayersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-pro-players", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_rank_distribution(&self, params: OpenDotaOpendotaRankDistributionParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-rank-distribution", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_records(&self, params: OpenDotaOpendotaRecordsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-records", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_scenarios(&self, params: OpenDotaOpendotaScenariosParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-scenarios", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_team(&self, params: OpenDotaOpendotaTeamParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-team", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_team_heroes(&self, params: OpenDotaOpendotaTeamHeroesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-team-heroes", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_team_matches(&self, params: OpenDotaOpendotaTeamMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-team-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_team_players(&self, params: OpenDotaOpendotaTeamPlayersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-team-players", &params, RequestOptions::default()).await
+    }
+
+    pub async fn opendota_teams(&self, params: OpenDotaOpendotaTeamsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("opendota-teams", &params, RequestOptions::default()).await
     }
 
 }
@@ -51640,6 +53140,30 @@ impl RedfinApi {
 }
 
 #[derive(Clone)]
+pub struct RednoteApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl RednoteApi {
+    pub async fn explore(&self, params: RednoteExploreParams) -> Result<ApiResponse, Error> {
+        self.inner.call("rednote-explore", &params, RequestOptions::default()).await
+    }
+
+    pub async fn note(&self, params: RednoteNoteParams) -> Result<ApiResponse, Error> {
+        self.inner.call("rednote-note", &params, RequestOptions::default()).await
+    }
+
+    pub async fn note_comments(&self, params: RednoteNoteCommentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("rednote-note-comments", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_suggest(&self, params: RednoteSearchSuggestParams) -> Result<ApiResponse, Error> {
+        self.inner.call("rednote-search-suggest", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct ReelShortApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -52803,6 +54327,74 @@ impl ShopAppApi {
 
     pub async fn suggestions(&self, params: ShopAppSuggestionsParams) -> Result<ApiResponse, Error> {
         self.inner.call("shop-app-suggestions", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct ShopeeApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl ShopeeApi {
+    pub async fn banners(&self, params: ShopeeBannersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-banners", &params, RequestOptions::default()).await
+    }
+
+    pub async fn categories(&self, params: ShopeeCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn category_detail(&self, params: ShopeeCategoryDetailParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-category-detail", &params, RequestOptions::default()).await
+    }
+
+    pub async fn flash_sale(&self, params: ShopeeFlashSaleParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-flash-sale", &params, RequestOptions::default()).await
+    }
+
+    pub async fn footer(&self, params: ShopeeFooterParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-footer", &params, RequestOptions::default()).await
+    }
+
+    pub async fn home(&self, params: ShopeeHomeParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-home", &params, RequestOptions::default()).await
+    }
+
+    pub async fn home_categories(&self, params: ShopeeHomeCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-home-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn location_filters(&self, params: ShopeeLocationFiltersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-location-filters", &params, RequestOptions::default()).await
+    }
+
+    pub async fn mall_categories(&self, params: ShopeeMallCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-mall-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn prefills(&self, params: ShopeePrefillsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-prefills", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_filters(&self, params: ShopeeSearchFiltersParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-search-filters", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_hints(&self, params: ShopeeSearchHintsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-search-hints", &params, RequestOptions::default()).await
+    }
+
+    pub async fn shop_info(&self, params: ShopeeShopInfoParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-shop-info", &params, RequestOptions::default()).await
+    }
+
+    pub async fn shops(&self, params: ShopeeShopsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-shops", &params, RequestOptions::default()).await
+    }
+
+    pub async fn suggest(&self, params: ShopeeSuggestParams) -> Result<ApiResponse, Error> {
+        self.inner.call("shopee-suggest", &params, RequestOptions::default()).await
     }
 
 }
@@ -56860,6 +58452,106 @@ impl VintedApi {
 }
 
 #[derive(Clone)]
+pub struct VlrApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl VlrApi {
+    pub async fn event(&self, params: VlrEventParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-event", &params, RequestOptions::default()).await
+    }
+
+    pub async fn event_agents(&self, params: VlrEventAgentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-event-agents", &params, RequestOptions::default()).await
+    }
+
+    pub async fn event_matches(&self, params: VlrEventMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-event-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn event_stats(&self, params: VlrEventStatsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-event-stats", &params, RequestOptions::default()).await
+    }
+
+    pub async fn events(&self, params: VlrEventsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-events", &params, RequestOptions::default()).await
+    }
+
+    pub async fn forum_categories(&self, params: VlrForumCategoriesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-forum-categories", &params, RequestOptions::default()).await
+    }
+
+    pub async fn forum_threads(&self, params: VlrForumThreadsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-forum-threads", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_(&self, params: VlrMatchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-match", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_economy(&self, params: VlrMatchEconomyParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-match-economy", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_performance(&self, params: VlrMatchPerformanceParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-match-performance", &params, RequestOptions::default()).await
+    }
+
+    pub async fn match_rounds(&self, params: VlrMatchRoundsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-match-rounds", &params, RequestOptions::default()).await
+    }
+
+    pub async fn matches(&self, params: VlrMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn news(&self, params: VlrNewsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-news", &params, RequestOptions::default()).await
+    }
+
+    pub async fn news_article(&self, params: VlrNewsArticleParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-news-article", &params, RequestOptions::default()).await
+    }
+
+    pub async fn player(&self, params: VlrPlayerParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-player", &params, RequestOptions::default()).await
+    }
+
+    pub async fn player_matches(&self, params: VlrPlayerMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-player-matches", &params, RequestOptions::default()).await
+    }
+
+    pub async fn rankings(&self, params: VlrRankingsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-rankings", &params, RequestOptions::default()).await
+    }
+
+    pub async fn results(&self, params: VlrResultsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-results", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search(&self, params: VlrSearchParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-search", &params, RequestOptions::default()).await
+    }
+
+    pub async fn stats(&self, params: VlrStatsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-stats", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team(&self, params: VlrTeamParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-team", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_maps(&self, params: VlrTeamMapsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-team-maps", &params, RequestOptions::default()).await
+    }
+
+    pub async fn team_matches(&self, params: VlrTeamMatchesParams) -> Result<ApiResponse, Error> {
+        self.inner.call("vlr-team-matches", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
 pub struct VoxApi {
     pub(crate) inner: Arc<ClientInner>,
 }
@@ -57447,6 +59139,30 @@ impl XdaApi {
 
     pub async fn sections(&self, params: XdaSectionsParams) -> Result<ApiResponse, Error> {
         self.inner.call("xda-sections", &params, RequestOptions::default()).await
+    }
+
+}
+
+#[derive(Clone)]
+pub struct XiaohongshuApi {
+    pub(crate) inner: Arc<ClientInner>,
+}
+
+impl XiaohongshuApi {
+    pub async fn explore(&self, params: XiaohongshuExploreParams) -> Result<ApiResponse, Error> {
+        self.inner.call("xiaohongshu-explore", &params, RequestOptions::default()).await
+    }
+
+    pub async fn note(&self, params: XiaohongshuNoteParams) -> Result<ApiResponse, Error> {
+        self.inner.call("xiaohongshu-note", &params, RequestOptions::default()).await
+    }
+
+    pub async fn note_comments(&self, params: XiaohongshuNoteCommentsParams) -> Result<ApiResponse, Error> {
+        self.inner.call("xiaohongshu-note-comments", &params, RequestOptions::default()).await
+    }
+
+    pub async fn search_suggest(&self, params: XiaohongshuSearchSuggestParams) -> Result<ApiResponse, Error> {
+        self.inner.call("xiaohongshu-search-suggest", &params, RequestOptions::default()).await
     }
 
 }
